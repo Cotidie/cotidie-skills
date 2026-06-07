@@ -9,6 +9,7 @@ Custom agent skills, organized per platform.
 | Skill | Description | Example |
 |-------|-------------|---------|
 | [codex-image](claude/codex-image) | Generate or edit raster/bitmap images via the Codex CLI's built-in `image_gen` tool (no `OPENAI_API_KEY` needed). | [prompt + result](claude/codex-image/example) |
+| [iteration-roadmap](claude/iteration-roadmap) | Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations — detailed near-term, flexible far-term, revised after each ship. | — |
 
 ### Codex
 
