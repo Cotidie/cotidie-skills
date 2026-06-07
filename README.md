@@ -2,6 +2,18 @@
 
 Custom agent skills, organized per platform.
 
+## Skills
+
+### Claude
+
+| Skill | Description |
+|-------|-------------|
+| [codex-image](claude/codex-image) | Generate or edit raster/bitmap images via the Codex CLI's built-in `image_gen` tool (no `OPENAI_API_KEY` needed). |
+
+### Codex
+
+_None yet._
+
 ## Layout
 
 ```
