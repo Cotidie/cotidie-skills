@@ -13,7 +13,9 @@ Custom agent skills, organized per platform.
 
 ### Codex
 
-_None yet._
+| Skill | Description | Example |
+|-------|-------------|---------|
+| [iteration-roadmap](codex/iteration-roadmap) | Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations — detailed near-term, flexible far-term, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | — |
 
 ## Layout
 
