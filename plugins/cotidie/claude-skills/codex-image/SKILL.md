@@ -28,7 +28,7 @@ Drive it from Bash, then collect the PNG it writes.
 Use the wrapper — it runs Codex, locates the PNG, and prints the final path:
 
 ```bash
-"${CLAUDE_PLUGIN_ROOT}/skills/codex-image/codex-image.sh" "<prompt>" [dest.png]
+"${CLAUDE_PLUGIN_ROOT}/claude-skills/codex-image/codex-image.sh" "<prompt>" [dest.png]
 ```
 
 - Omit `dest.png` → prints the source path under `~/.codex/generated_images/`.

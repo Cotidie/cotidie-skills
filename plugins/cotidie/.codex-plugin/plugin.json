@@ -9,7 +9,7 @@
   "interface": {
     "displayName": "Cotidie",
     "shortDescription": "Custom Codex workflows for PR writing and iteration roadmaps.",
-    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text and planning vertical, user-testable iterations.",
+    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text and planning vertical user-testable iterations.",
     "developerName": "Cotidie",
     "category": "Productivity",
     "capabilities": [

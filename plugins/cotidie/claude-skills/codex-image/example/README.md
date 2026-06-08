@@ -19,7 +19,7 @@ constraints** — and a trailing `Avoid:` clause to suppress unwanted elements.
 ## Command
 
 ```bash
-~/.claude/skills/codex-image/codex-image.sh "<prompt above>" peaceful-fantasy.png
+"${CLAUDE_PLUGIN_ROOT}/claude-skills/codex-image/codex-image.sh" "<prompt above>" peaceful-fantasy.png
 ```
 
 ## Result
