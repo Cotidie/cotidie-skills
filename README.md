@@ -44,22 +44,38 @@ reference files. Bundled scripts reference their location via
 
 ### Claude Code (plugin)
 
-Add this repo as a marketplace, then install the plugin:
+Add this repo as a marketplace, then install the plugin. From the terminal:
 
-```
-/plugin marketplace add cotidie/cotidie-skills
-/plugin install cotidie
-```
-
-For local development against a checkout, point the marketplace at the path:
-
-```
-/plugin marketplace add /home/wonseok/repositories/cotidie-skills
-/plugin install cotidie
+```bash
+claude plugin marketplace add Cotidie/cotidie-skills
+claude plugin install cotidie@cotidie-skills
 ```
 
-Skills then appear as `cotidie:codex-image`, `cotidie:iteration-roadmap`, and
-`cotidie:pr-writer`.
+Or in-session via slash commands:
+
+```
+/plugin marketplace add Cotidie/cotidie-skills
+/plugin install cotidie@cotidie-skills
+```
+
+For local development against a checkout, point the marketplace at the path
+instead (edits stay live; run `claude plugin marketplace update cotidie-skills`
+after pulling changes):
+
+```bash
+claude plugin marketplace add /absolute/path/to/cotidie-skills
+claude plugin install cotidie@cotidie-skills
+```
+
+Verify and inspect:
+
+```bash
+claude plugin list              # cotidie@cotidie-skills → enabled
+claude plugin details cotidie   # lists the 3 bundled skills
+```
+
+Skills load on the next session as `cotidie:codex-image`,
+`cotidie:iteration-roadmap`, and `cotidie:pr-writer`.
 
 ### Codex CLI
 
