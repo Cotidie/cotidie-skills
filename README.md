@@ -10,6 +10,7 @@ Custom agent skills, organized per platform.
 |-------|-------------|---------|
 | [codex-image](claude/codex-image) | Generate or edit raster/bitmap images via the Codex CLI's built-in `image_gen` tool (no `OPENAI_API_KEY` needed). | [prompt + result](claude/codex-image/example) |
 | [iteration-roadmap](claude/iteration-roadmap) | Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations — detailed near-term, flexible far-term, revised after each ship. | — |
+| [pr-writer](claude/pr-writer) | Draft concise pull request titles and bodies only. Use when the user asks for a PR title, PR description, PR body, GitHub PR text, merge request text, or wants a high-level summary of the current branch/diff/commits for teammates, junior developers, reviewers, or non-specialist readers. | — |
 
 ### Codex
 
