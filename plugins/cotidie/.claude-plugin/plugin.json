@@ -1,0 +1,8 @@
+{
+  "name": "cotidie",
+  "description": "Cotidie's custom Claude Code skills: PR writing, iteration roadmaps, and Codex image generation.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Cotidie"
+  }
+}

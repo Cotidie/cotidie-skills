@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cotidie-skills",
+  "description": "Cotidie's custom Claude Code skills.",
+  "owner": {
+    "name": "Cotidie"
+  },
+  "plugins": [
+    {
+      "name": "cotidie",
+      "description": "PR writing, iteration roadmaps, and Codex image generation skills.",
+      "source": "./plugins/cotidie",
+      "category": "productivity"
+    }
+  ]
+}

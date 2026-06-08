@@ -1,51 +1,70 @@
 # cotidie-skills
 
-Custom agent skills, organized per platform.
+Custom agent skills. Claude Code skills ship as the `cotidie` plugin (skills
+invoke as `cotidie:<skill>`); Codex skills stay as loose skill folders.
 
 ## Skills
 
-### Claude
+### Claude (`cotidie` plugin)
 
 | Skill | Description | Example |
 |-------|-------------|---------|
-| [codex-image](claude/codex-image) | Generate or edit raster images via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](claude/codex-image/example) |
-| [iteration-roadmap](claude/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. | — |
-| [pr-writer](claude/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. | — |
+| [cotidie:codex-image](plugins/cotidie/skills/codex-image) | Generate or edit raster images via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](plugins/cotidie/skills/codex-image/example) |
+| [cotidie:iteration-roadmap](plugins/cotidie/skills/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. | - |
+| [cotidie:pr-writer](plugins/cotidie/skills/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. | - |
 
 ### Codex
 
 | Skill | Description | Example |
 |-------|-------------|---------|
-| [iteration-roadmap](codex/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | — |
-| [pr-writer](codex/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. (Codex port: no `trigger`/`AskUserQuestion`/`gh` refs.) | — |
+| [iteration-roadmap](codex/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | - |
+| [pr-writer](codex/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. (Codex port: no `trigger`/`AskUserQuestion`/`gh` refs.) | - |
 
 ## Layout
 
 ```
-claude/    # Skills for Claude Code  → install to ~/.claude/skills/
-codex/     # Skills for Codex CLI    → install to ~/.codex/skills/
+.claude-plugin/
+  marketplace.json        # marketplace manifest (points at plugins/cotidie)
+plugins/cotidie/
+  .claude-plugin/
+    plugin.json           # plugin manifest
+  skills/                 # auto-discovered Claude Code skills
+    codex-image/
+    iteration-roadmap/
+    pr-writer/
+codex/                    # Codex CLI skills → install to ~/.codex/skills/
 ```
 
 Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
 `description`, followed by markdown instructions) plus any supporting scripts or
-reference files.
+reference files. Bundled scripts reference their location via
+`${CLAUDE_PLUGIN_ROOT}`.
+
+## Installing
+
+### Claude Code (plugin)
+
+Add this repo as a marketplace, then install the plugin:
 
 ```
-claude/
-  my-skill/
-    SKILL.md
-    helper.sh        # optional supporting files
+/plugin marketplace add cotidie/cotidie-skills
+/plugin install cotidie
 ```
 
-## Installing a skill
+For local development against a checkout, point the marketplace at the path:
 
-Symlink (so edits in the repo stay live) or copy the skill folder into the
-platform's skills directory:
+```
+/plugin marketplace add /home/wonseok/repositories/cotidie-skills
+/plugin install cotidie
+```
+
+Skills then appear as `cotidie:codex-image`, `cotidie:iteration-roadmap`, and
+`cotidie:pr-writer`.
+
+### Codex CLI
+
+Symlink (so edits stay live) or copy the skill folder:
 
 ```bash
-# Claude Code
-ln -s "$PWD/claude/my-skill" ~/.claude/skills/my-skill
-
-# Codex CLI
 ln -s "$PWD/codex/my-skill" ~/.codex/skills/my-skill
 ```
