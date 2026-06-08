@@ -1,7 +1,6 @@
 ---
 name: iteration-roadmap
 description: "Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. Use when the user wants to plan iterations, make a roadmap, phase work into milestones/releases/MVPs, sequence work, or deliver a big build incrementally (even from a finished design doc). Use it BEFORE per-iteration detailed planning."
-trigger: /iteration-roadmap
 ---
 
 # Iteration Roadmap
@@ -12,10 +11,10 @@ feedback then revises the iterations you haven't detailed yet.
 
 This skill is a **macro-sequencing layer**. It sits between intent and detailed planning:
 
-- **Up:** if the input is just a vague idea, hand off to `superpowers:brainstorming`
-  (or do research) first — you cannot honestly slice scope you haven't pinned down.
-- **Down:** each iteration, when you actually start it, gets its own detailed plan via
-  `superpowers:writing-plans`. This skill produces the roadmap, not the line-by-line plan.
+- **Up:** if the input is just a vague idea, do a product-discovery / brainstorming pass
+  (or research) first — you cannot honestly slice scope you haven't pinned down.
+- **Down:** each iteration, when you actually start it, gets its own detailed plan via a
+  dedicated planning pass. This skill produces the roadmap, not the line-by-line plan.
 
 The reason this skill exists: left to default behavior, models produce **infrastructure-
 ordered** plans (build the indexer, then the sync, then the API, then finally something
@@ -30,7 +29,7 @@ support.
 
 | Input you were given | What to do |
 | --- | --- |
-| **Vague idea / goal only** ("I want semantic search someday") | **Interview to lift it to sliceable** (see below). Roadmap only after. Route to `superpowers:brainstorming` *instead* only if it's genuine product-discovery — you can't yet say what it is, why, or for whom even after asking. |
+| **Vague idea / goal only** ("I want semantic search someday") | **Interview to lift it to sliceable** (see below). Roadmap only after. Do a product-discovery / brainstorming pass *instead* only if it's genuine product-discovery — you can't yet say what it is, why, or for whom even after asking. |
 | **Spec / requirements, no architecture** | Extract constraints, then surface the **open technical decisions** as questions (see Step 4) before slicing. Mark anything still unknown as `OPEN` — never quietly choose for far iterations. |
 | **Locked design doc / decisions already made** | Re-slice directly. Preserve every locked decision unless there's a clear reason to revisit — name the reason if you do. |
 
@@ -40,11 +39,11 @@ If unsure which bucket you're in, you're probably in the middle one: ask.
 
 A vague goal doesn't need a full design before you can slice it — it needs just enough to
 name a first runnable slice and the headline value. Ask the **smallest set** that gets you
-there (group into one `AskUserQuestion` call where you can; don't interrogate). Target:
+there (batch related questions into one turn where you can; don't interrogate). Target:
 
 - **Who + what + why** — who uses this, what they do with it, the one outcome that makes it
   worth building. (If this stays fuzzy after asking → that's the product-discovery signal:
-  hand off to `superpowers:brainstorming` instead of forcing a roadmap.)
+  do a discovery / brainstorming pass instead of forcing a roadmap.)
 - **Must-have vs nice-to-have** — what the *first usable version* must do, and what is
   explicitly deferred. This is what seeds iteration 1 vs later slices.
 - **Any fixed points** — decisions or constraints the user already holds (stack they must
@@ -87,9 +86,9 @@ Sequence by **risk-reduction + dependency**, not by architectural tidiness:
 
 Some decisions change the **shape** of the roadmap (which iterations exist, in what
 order). Examples: "CLI-first or service-first?", "containerize from day one or last?".
-Put these — at most 1–3 — to the user via `AskUserQuestion` before writing, because
-guessing wrong rewrites the whole sequence. Do **not** ask about choices that only affect
-one iteration's internals; those get decided when that iteration is detailed.
+Put these — at most 1–3 — to the user before writing, because guessing wrong rewrites the
+whole sequence. Do **not** ask about choices that only affect one iteration's internals;
+those get decided when that iteration is detailed.
 
 ## Step 5 — Write the iterations
 

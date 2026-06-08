@@ -1,7 +1,6 @@
 ---
 name: pr-writer
 description: Draft a PR or MR title and body from the branch diff, commits, or a summary. Use when asked for PR/MR text, a PR title/description/body, or a reviewer-facing change summary.
-trigger: /pr-writer
 ---
 
 # PR Writer
@@ -19,10 +18,10 @@ Use whatever context is available:
 - User-provided summary, diff, commits, issue, screenshots, or release notes.
 - Current branch diff or commit list when the user asks for the current branch. Gather it
   yourself with `git diff <base>...HEAD` and `git log <base>..HEAD --oneline` (default base
-  to the repo's main branch), or `gh pr diff` when a PR already exists.
+  to the repo's main branch).
 - Attached screenshot only as context for what screenshot might be useful; do not describe unrelated visual details.
 
-If important context is missing, ask one concise clarification question via `AskUserQuestion`. Otherwise, make a reasonable draft.
+If important context is missing, ask one concise clarification question. Otherwise, make a reasonable draft.
 
 ## Title
 
@@ -133,5 +132,4 @@ Title: Feat: Add Factorial Analysis Report
 ...
 ```
 
-Output the text only. Do not create or push the PR unless the user explicitly asks; if they
-do, use `gh pr create` with the drafted title and body.
+Output the text only. Do not create or push the PR unless the user explicitly asks.
