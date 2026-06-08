@@ -1,0 +1,221 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="page1" name="Page-1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1"
+                  tooltips="1" connect="1" arrows="1" fold="1" page="1"
+                  pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- ============ TITLE BLOCK ============ -->
+        <mxCell id="title" value="&lt;b style=&quot;font-size:20px&quot;&gt;Reference Example&lt;/b&gt;&#10;&#10;A small order-processing model used as a copy-paste reference&#10;for the uml-class-diagram skill. Demonstrates the two-arrow&#10;default (uses, inherits), a justified interface (two impls),&#10;an abstract class, an enumeration, and a package container."
+                style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;fillColor=none;strokeColor=none;"
+                vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="500" height="120" as="geometry"/>
+        </mxCell>
+
+        <!-- ============ FREE-FLOATING CLASSES (no package) ============ -->
+
+        <!-- Order: the central concrete class -->
+        <mxCell id="cls_order" value="Order"
+                style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="640" y="200" width="240" height="160" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_order_fields"
+                value="- id: int&#10;- items: List&lt;LineItem&gt;&#10;- status: OrderStatus"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_order">
+          <mxGeometry y="26" width="240" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_order_sep" value=""
+                style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;"
+                vertex="1" parent="cls_order">
+          <mxGeometry y="80" width="240" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_order_methods"
+                value="+ total(): float&#10;+ submit()&#10;+ cancel()"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_order">
+          <mxGeometry y="88" width="240" height="72" as="geometry"/>
+        </mxCell>
+
+        <!-- LineItem -->
+        <mxCell id="cls_lineitem" value="LineItem"
+                style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="980" y="200" width="220" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_lineitem_fields"
+                value="+ sku: string&#10;+ qty: int&#10;+ unitPrice: float"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_lineitem">
+          <mxGeometry y="26" width="220" height="54" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_lineitem_sep" value=""
+                style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;"
+                vertex="1" parent="cls_lineitem">
+          <mxGeometry y="80" width="220" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_lineitem_methods"
+                value="+ subtotal(): float"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_lineitem">
+          <mxGeometry y="88" width="220" height="32" as="geometry"/>
+        </mxCell>
+
+        <!-- OrderStatus enum -->
+        <mxCell id="enum_status" value="&lt;&lt;enumeration&gt;&gt;&#10;OrderStatus"
+                style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;"
+                vertex="1" parent="1">
+          <mxGeometry x="640" y="430" width="200" height="140" as="geometry"/>
+        </mxCell>
+        <mxCell id="enum_status_values"
+                value="DRAFT&#10;SUBMITTED&#10;PAID&#10;SHIPPED&#10;CANCELED"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="enum_status">
+          <mxGeometry y="40" width="200" height="100" as="geometry"/>
+        </mxCell>
+
+        <!-- ============ PACKAGE: payment ============ -->
+        <!-- Justification: the payment subsystem has one interface with two real implementations -->
+        <!-- on the diagram. That earns its package box. -->
+        <mxCell id="pkg_payment" value="payment"
+                style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#000000;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontStyle=0;"
+                vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="540" height="500" as="geometry"/>
+        </mxCell>
+
+        <!-- PaymentGateway interface (justified: two implementations below) -->
+        <mxCell id="iface_gateway" value="&lt;&lt;interface&gt;&gt;&#10;PaymentGateway"
+                style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;"
+                vertex="1" parent="pkg_payment">
+          <mxGeometry x="160" y="40" width="220" height="100" as="geometry"/>
+        </mxCell>
+        <mxCell id="iface_gateway_methods"
+                value="+ charge(amount: float): Receipt&#10;+ refund(receipt: Receipt): bool"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="iface_gateway">
+          <mxGeometry y="40" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- AbstractGateway: shows abstract-class shape (italic title via fontStyle=3) -->
+        <mxCell id="cls_absgw" value="AbstractGateway"
+                style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;"
+                vertex="1" parent="pkg_payment">
+          <mxGeometry x="160" y="180" width="220" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_absgw_fields"
+                value="# apiKey: string&#10;# baseUrl: string"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_absgw">
+          <mxGeometry y="26" width="220" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_absgw_sep" value=""
+                style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;"
+                vertex="1" parent="cls_absgw">
+          <mxGeometry y="66" width="220" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_absgw_methods"
+                value="+ charge(amount: float): Receipt&#10;# sign(req: Request): string"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_absgw">
+          <mxGeometry y="74" width="220" height="46" as="geometry"/>
+        </mxCell>
+
+        <!-- StripeGateway: concrete implementation #1 -->
+        <mxCell id="cls_stripe" value="StripeGateway"
+                style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;"
+                vertex="1" parent="pkg_payment">
+          <mxGeometry x="20" y="340" width="220" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_stripe_fields"
+                value="- accountId: string"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_stripe">
+          <mxGeometry y="26" width="220" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_stripe_sep" value=""
+                style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;"
+                vertex="1" parent="cls_stripe">
+          <mxGeometry y="52" width="220" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_stripe_methods"
+                value="+ refund(receipt: Receipt): bool&#10;# sign(req: Request): string"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_stripe">
+          <mxGeometry y="60" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- PaypalGateway: concrete implementation #2 -->
+        <mxCell id="cls_paypal" value="PaypalGateway"
+                style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;html=1;"
+                vertex="1" parent="pkg_payment">
+          <mxGeometry x="300" y="340" width="220" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_paypal_fields"
+                value="- merchantId: string"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_paypal">
+          <mxGeometry y="26" width="220" height="26" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_paypal_sep" value=""
+                style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;"
+                vertex="1" parent="cls_paypal">
+          <mxGeometry y="52" width="220" height="8" as="geometry"/>
+        </mxCell>
+        <mxCell id="cls_paypal_methods"
+                value="+ refund(receipt: Receipt): bool&#10;# sign(req: Request): string"
+                style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;"
+                vertex="1" parent="cls_paypal">
+          <mxGeometry y="60" width="220" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- ============ EDGES (two-arrow default) ============ -->
+
+        <!-- Uses: Order -> LineItem -->
+        <mxCell id="e_uses_order_item"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;"
+                edge="1" parent="1" source="cls_order" target="cls_lineitem">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Uses: Order -> OrderStatus -->
+        <mxCell id="e_uses_order_status"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;"
+                edge="1" parent="1" source="cls_order" target="enum_status">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Uses: Order -> PaymentGateway (depends on the abstraction, not a concrete impl) -->
+        <mxCell id="e_uses_order_gw"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;"
+                edge="1" parent="1" source="cls_order" target="iface_gateway">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Inherits: AbstractGateway -> PaymentGateway -->
+        <mxCell id="e_inh_absgw_iface"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=16;"
+                edge="1" parent="1" source="cls_absgw" target="iface_gateway">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Inherits: StripeGateway -> AbstractGateway -->
+        <mxCell id="e_inh_stripe_abs"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=16;"
+                edge="1" parent="1" source="cls_stripe" target="cls_absgw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- Inherits: PaypalGateway -> AbstractGateway -->
+        <mxCell id="e_inh_paypal_abs"
+                style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;endSize=16;"
+                edge="1" parent="1" source="cls_paypal" target="cls_absgw">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

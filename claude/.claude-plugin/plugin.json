@@ -1,6 +1,6 @@
 {
   "name": "cotidie",
-  "description": "Cotidie's custom Claude Code skills: PR writing, iteration roadmaps, and Codex image generation.",
+  "description": "Cotidie's custom Claude Code skills: PR writing, iteration roadmaps, Codex image generation, and UML class diagrams.",
   "version": "0.1.0",
   "skills": "./skills/",
   "author": {

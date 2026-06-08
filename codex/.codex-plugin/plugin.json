@@ -1,21 +1,23 @@
 {
   "name": "cotidie",
   "version": "0.1.0",
-  "description": "Cotidie's custom Codex skills: PR writing and iteration roadmaps.",
+  "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, and UML class diagrams.",
   "skills": "./skills/",
   "author": {
     "name": "Cotidie"
   },
   "interface": {
     "displayName": "Cotidie",
-    "shortDescription": "Custom Codex workflows for PR writing and iteration roadmaps.",
-    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text and planning vertical user-testable iterations.",
+    "shortDescription": "Custom Codex workflows for PR writing, iteration roadmaps, and UML class diagrams.",
+    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text, planning vertical user-testable iterations, and creating or modifying UML class diagrams as draw.io files.",
     "developerName": "Cotidie",
     "category": "Productivity",
     "capabilities": [
       "Draft PR and MR titles and bodies",
-      "Plan adaptive delivery roadmaps"
+      "Plan adaptive delivery roadmaps",
+      "Create UML class diagrams as draw.io files",
+      "Modify existing UML class diagrams against code"
     ],
-    "defaultPrompt": "Use $cotidie:pr-writer or $cotidie:iteration-roadmap."
+    "defaultPrompt": "Use $cotidie:pr-writer, $cotidie:iteration-roadmap, $cotidie:create-class-diagram, or $cotidie:modify-class-diagram."
   }
 }

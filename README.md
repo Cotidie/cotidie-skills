@@ -14,6 +14,8 @@ Codex.
 | [cotidie:iteration-roadmap](claude/skills/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. | - |
 | [cotidie:pr-writer](claude/skills/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. | - |
 | [cotidie:codex-image](claude/skills/codex-image) | Generate or edit raster images via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](claude/skills/codex-image/example) |
+| [cotidie:create-class-diagram](claude/skills/create-class-diagram) | Create lean, monochrome UML class diagrams as uncompressed `.drawio` XML (written to the working directory), emphasizing OOP structure, SOLID, and dependency flow. | - |
+| [cotidie:modify-class-diagram](claude/skills/modify-class-diagram) | Conservatively update an existing on-disk `.drawio` class diagram to match a codebase, preserving IDs, layout, and style. | - |
 
 ### Codex (`codex/`)
 
@@ -21,6 +23,8 @@ Codex.
 |-------|-------------|
 | [cotidie:iteration-roadmap](codex/skills/iteration-roadmap) | Codex-safe port of the roadmap skill (no `trigger`/`AskUserQuestion`/superpowers refs). |
 | [cotidie:pr-writer](codex/skills/pr-writer) | Codex-safe port of the PR writer (no `trigger`/`AskUserQuestion`/`gh` refs). |
+| [cotidie:create-class-diagram](codex/skills/create-class-diagram) | Codex-safe port for creating lean, monochrome UML class diagrams as uncompressed `.drawio` XML. |
+| [cotidie:modify-class-diagram](codex/skills/modify-class-diagram) | Codex-safe port for conservatively updating an existing `.drawio` class diagram against a codebase. |
 
 ## Layout
 
@@ -36,18 +40,22 @@ claude/
     iteration-roadmap/
     pr-writer/
     codex-image/          # Claude Code only
+    create-class-diagram/
+    modify-class-diagram/
 codex/
   .codex-plugin/
     plugin.json           # Codex plugin manifest (skills: ./skills/)
   skills/
     iteration-roadmap/    # Codex-safe port
     pr-writer/            # Codex-safe port
+    create-class-diagram/ # Codex-safe port
+    modify-class-diagram/ # Codex-safe port
 ```
 
 Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
 `description`, followed by markdown instructions) plus any supporting scripts or
 reference files. Claude and Codex keep separate skill copies so each can carry
-host-specific instructions. Bundled scripts reference their location via
+host-specific instructions. Claude-bundled scripts reference their location via
 `${CLAUDE_PLUGIN_ROOT}`.
 
 ## Installing
@@ -81,11 +89,12 @@ Verify and inspect:
 
 ```bash
 claude plugin list              # cotidie@cotidie-skills → enabled
-claude plugin details cotidie   # lists the 3 bundled skills
+claude plugin details cotidie   # lists the 5 bundled skills
 ```
 
 Skills load on the next session as `cotidie:codex-image`,
-`cotidie:iteration-roadmap`, and `cotidie:pr-writer`.
+`cotidie:create-class-diagram`, `cotidie:iteration-roadmap`,
+`cotidie:modify-class-diagram`, and `cotidie:pr-writer`.
 
 ### Codex CLI (plugin)
 
@@ -102,6 +111,8 @@ Codex skills then invoke as:
 ```text
 $cotidie:iteration-roadmap
 $cotidie:pr-writer
+$cotidie:create-class-diagram
+$cotidie:modify-class-diagram
 ```
 
 For local authoring without the plugin namespace, you can still symlink a
