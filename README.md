@@ -16,6 +16,7 @@ Custom agent skills, organized per platform.
 | Skill | Description | Example |
 |-------|-------------|---------|
 | [iteration-roadmap](codex/iteration-roadmap) | Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations — detailed near-term, flexible far-term, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | — |
+| [pr-writer](codex/pr-writer) | Draft concise pull request titles and bodies only. Use when the user asks for a PR title, PR description, PR body, GitHub PR text, merge request text, or wants a high-level summary of the current branch/diff/commits for teammates, junior developers, reviewers, or non-specialist readers. | — |
 
 ## Layout
 
@@ -47,4 +48,3 @@ ln -s "$PWD/claude/my-skill" ~/.claude/skills/my-skill
 # Codex CLI
 ln -s "$PWD/codex/my-skill" ~/.codex/skills/my-skill
 ```
-
