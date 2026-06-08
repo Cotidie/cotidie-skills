@@ -1,6 +1,6 @@
 ---
 name: codex-image
-description: Use when you need to create or edit a raster/bitmap image (photo, illustration, infographic, product/UI mockup, texture, sprite, hero image, cover art) and the Codex CLI is installed. NOT for diagrams, flowcharts, wireframes, icons, or logos that should be code-native — use mermaid/SVG for those.
+description: Create or edit a raster/bitmap image (photo, illustration, infographic, UI mockup, texture, sprite, cover art) via the installed Codex CLI. NOT for diagrams, flowcharts, wireframes, icons, or logos; use mermaid/SVG for those.
 ---
 
 # codex-image

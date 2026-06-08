@@ -8,16 +8,16 @@ Custom agent skills, organized per platform.
 
 | Skill | Description | Example |
 |-------|-------------|---------|
-| [codex-image](claude/codex-image) | Generate or edit raster/bitmap images via the Codex CLI's built-in `image_gen` tool (no `OPENAI_API_KEY` needed). | [prompt + result](claude/codex-image/example) |
-| [iteration-roadmap](claude/iteration-roadmap) | Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations — detailed near-term, flexible far-term, revised after each ship. | — |
-| [pr-writer](claude/pr-writer) | Draft concise pull request titles and bodies only. Use when the user asks for a PR title, PR description, PR body, GitHub PR text, merge request text, or wants a high-level summary of the current branch/diff/commits for teammates, junior developers, reviewers, or non-specialist readers. | — |
+| [codex-image](claude/codex-image) | Generate or edit raster images via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](claude/codex-image/example) |
+| [iteration-roadmap](claude/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. | — |
+| [pr-writer](claude/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. | — |
 
 ### Codex
 
 | Skill | Description | Example |
 |-------|-------------|---------|
-| [iteration-roadmap](codex/iteration-roadmap) | Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations — detailed near-term, flexible far-term, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | — |
-| [pr-writer](codex/pr-writer) | Draft concise pull request titles and bodies only. Use when the user asks for a PR title, PR description, PR body, GitHub PR text, merge request text, or wants a high-level summary of the current branch/diff/commits for teammates, junior developers, reviewers, or non-specialist readers. | — |
+| [iteration-roadmap](codex/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | — |
+| [pr-writer](codex/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. (Codex port: no `trigger`/`AskUserQuestion`/`gh` refs.) | — |
 
 ## Layout
 

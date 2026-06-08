@@ -1,6 +1,6 @@
 ---
 name: iteration-roadmap
-description: "Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations — each one independently runnable, detailed near-term and kept flexible far-term, revised from feedback after each ship. Use this whenever the user wants to 'plan iterations', 'make a roadmap', 'phase this out', 'break this into milestones/releases/MVPs', 'sequence the work', or asks how to deliver a big build incrementally — even if they hand you a finished design doc and just say 'turn this into a plan'. Use it BEFORE diving into per-iteration detailed planning."
+description: "Break a project, feature, or design into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. Use when the user wants to plan iterations, make a roadmap, phase work into milestones/releases/MVPs, sequence work, or deliver a big build incrementally (even from a finished design doc). Use it BEFORE per-iteration detailed planning."
 trigger: /iteration-roadmap
 ---
 

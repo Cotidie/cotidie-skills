@@ -1,6 +1,6 @@
 ---
 name: pr-writer
-description: Draft concise pull request titles and bodies only. Use when the user asks for a PR title, PR description, PR body, GitHub PR text, merge request text, or wants a high-level summary of the current branch/diff/commits for teammates, junior developers, reviewers, or non-specialist readers.
+description: Draft a PR or MR title and body from the branch diff, commits, or a summary. Use when asked for PR/MR text, a PR title/description/body, or a reviewer-facing change summary.
 trigger: /pr-writer
 ---
 
