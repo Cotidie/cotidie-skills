@@ -1,7 +1,8 @@
 # cotidie-skills
 
-Custom agent skills. Claude Code skills ship as the `cotidie` plugin (skills
-invoke as `cotidie:<skill>`); Codex skills stay as loose skill folders.
+Custom agent skills. Claude Code and Codex both ship skills through the
+`cotidie` plugin namespace, so skills invoke as `cotidie:<skill>` in Claude
+Code and `$cotidie:<skill>` in Codex.
 
 ## Skills
 
@@ -17,22 +18,32 @@ invoke as `cotidie:<skill>`); Codex skills stay as loose skill folders.
 
 | Skill | Description | Example |
 |-------|-------------|---------|
-| [iteration-roadmap](codex/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | - |
-| [pr-writer](codex/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. (Codex port: no `trigger`/`AskUserQuestion`/`gh` refs.) | - |
+| [cotidie:iteration-roadmap](codex/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. (Codex port: no `trigger`/`AskUserQuestion`/superpowers refs.) | - |
+| [cotidie:pr-writer](codex/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. (Codex port: no `trigger`/`AskUserQuestion`/`gh` refs.) | - |
 
 ## Layout
 
 ```
+.agents/plugins/
+  marketplace.json        # Codex marketplace manifest (points at codex/plugins/cotidie)
 .claude-plugin/
   marketplace.json        # marketplace manifest (points at plugins/cotidie)
+codex/
+  iteration-roadmap/      # Codex-safe source skill
+  pr-writer/              # Codex-safe source skill
+  plugins/cotidie/
+    .codex-plugin/
+      plugin.json         # Codex plugin manifest
+    skills/               # Codex plugin skill links
+      iteration-roadmap -> ../../../iteration-roadmap
+      pr-writer -> ../../../pr-writer
 plugins/cotidie/
   .claude-plugin/
-    plugin.json           # plugin manifest
+    plugin.json           # Claude Code plugin manifest
   skills/                 # auto-discovered Claude Code skills
     codex-image/
     iteration-roadmap/
     pr-writer/
-codex/                    # Codex CLI skills → install to ~/.codex/skills/
 ```
 
 Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
@@ -77,10 +88,23 @@ claude plugin details cotidie   # lists the 3 bundled skills
 Skills load on the next session as `cotidie:codex-image`,
 `cotidie:iteration-roadmap`, and `cotidie:pr-writer`.
 
-### Codex CLI
+### Codex CLI (plugin)
 
-Symlink (so edits stay live) or copy the skill folder:
+This repo includes a local Codex marketplace at `.agents/plugins/marketplace.json`.
+From this repo, restart Codex and open the plugin browser:
 
-```bash
-ln -s "$PWD/codex/my-skill" ~/.codex/skills/my-skill
+```text
+/plugins
 ```
+
+Install and enable `cotidie` from the `Cotidie Skills` marketplace. The bundled
+Codex skills then invoke as:
+
+```text
+$cotidie:iteration-roadmap
+$cotidie:pr-writer
+```
+
+For local authoring without the plugin namespace, you can still symlink a
+source skill folder into `~/.codex/skills/`, but that exposes it as
+`$<skill-name>` instead of `$cotidie:<skill>`.

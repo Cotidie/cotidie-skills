@@ -1,0 +1,21 @@
+{
+  "name": "cotidie",
+  "version": "0.1.0",
+  "description": "Cotidie's custom Codex skills: PR writing and iteration roadmaps.",
+  "skills": "./skills/",
+  "author": {
+    "name": "Cotidie"
+  },
+  "interface": {
+    "displayName": "Cotidie",
+    "shortDescription": "Custom Codex workflows for PR writing and iteration roadmaps.",
+    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text and planning vertical, user-testable iterations.",
+    "developerName": "Cotidie",
+    "category": "Productivity",
+    "capabilities": [
+      "Draft PR and MR titles and bodies",
+      "Plan adaptive delivery roadmaps"
+    ],
+    "defaultPrompt": "Use $cotidie:pr-writer or $cotidie:iteration-roadmap."
+  }
+}
