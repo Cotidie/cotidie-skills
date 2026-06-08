@@ -8,7 +8,7 @@
       "name": "cotidie",
       "source": {
         "source": "local",
-        "path": "./plugins/cotidie"
+        "path": "./codex"
       },
       "policy": {
         "installation": "AVAILABLE",

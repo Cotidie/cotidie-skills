@@ -1,47 +1,53 @@
 # cotidie-skills
 
-Custom agent skills. Claude Code and Codex both ship skills from the
-`plugins/cotidie` plugin root. Shared skills invoke as `cotidie:<skill>` in
-Claude Code and `$cotidie:<skill>` in Codex.
+Custom agent skills, split by host. The `claude/` plugin serves Claude Code and
+the `codex/` plugin serves Codex. Both ship under the `cotidie` plugin name, so
+skills invoke as `cotidie:<skill>` in Claude Code and `$cotidie:<skill>` in
+Codex.
 
 ## Skills
 
-### Shared
-
-| Skill | Description |
-|-------|-------------|
-| [cotidie:iteration-roadmap](plugins/cotidie/skills/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. |
-| [cotidie:pr-writer](plugins/cotidie/skills/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. |
-
-### Claude Code Only
+### Claude Code (`claude/`)
 
 | Skill | Description | Example |
 |-------|-------------|---------|
-| [cotidie:codex-image](plugins/cotidie/claude-skills/codex-image) | Generate or edit raster images from Claude Code via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](plugins/cotidie/claude-skills/codex-image/example) |
+| [cotidie:iteration-roadmap](claude/skills/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. | - |
+| [cotidie:pr-writer](claude/skills/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. | - |
+| [cotidie:codex-image](claude/skills/codex-image) | Generate or edit raster images via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](claude/skills/codex-image/example) |
+
+### Codex (`codex/`)
+
+| Skill | Description |
+|-------|-------------|
+| [cotidie:iteration-roadmap](codex/skills/iteration-roadmap) | Codex-safe port of the roadmap skill (no `trigger`/`AskUserQuestion`/superpowers refs). |
+| [cotidie:pr-writer](codex/skills/pr-writer) | Codex-safe port of the PR writer (no `trigger`/`AskUserQuestion`/`gh` refs). |
 
 ## Layout
 
 ```
-.agents/plugins/
-  marketplace.json        # Codex marketplace manifest (points at plugins/cotidie)
 .claude-plugin/
-  marketplace.json        # marketplace manifest (points at plugins/cotidie)
-plugins/cotidie/
+  marketplace.json        # Claude Code marketplace manifest (points at ./claude)
+.agents/plugins/
+  marketplace.json        # Codex marketplace manifest (points at ./codex)
+claude/
   .claude-plugin/
-    plugin.json           # Claude Code plugin manifest
-  .codex-plugin/
-    plugin.json           # Codex plugin manifest
-  skills/                 # shared skills, visible to Claude Code and Codex
+    plugin.json           # Claude Code plugin manifest (skills: ./skills/)
+  skills/
     iteration-roadmap/
     pr-writer/
-  claude-skills/          # Claude Code-only skills loaded by .claude-plugin
-    codex-image/
+    codex-image/          # Claude Code only
+codex/
+  .codex-plugin/
+    plugin.json           # Codex plugin manifest (skills: ./skills/)
+  skills/
+    iteration-roadmap/    # Codex-safe port
+    pr-writer/            # Codex-safe port
 ```
 
 Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
 `description`, followed by markdown instructions) plus any supporting scripts or
-reference files. Shared skills live in `plugins/cotidie/skills`; Claude-only
-skills live in `plugins/cotidie/claude-skills`. Bundled scripts reference their location via
+reference files. Claude and Codex keep separate skill copies so each can carry
+host-specific instructions. Bundled scripts reference their location via
 `${CLAUDE_PLUGIN_ROOT}`.
 
 ## Installing

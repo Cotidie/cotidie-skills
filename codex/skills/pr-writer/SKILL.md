@@ -16,9 +16,7 @@ Assume the reader is a junior developer or a teammate from another team. Prefer 
 Use whatever context is available:
 
 - User-provided summary, diff, commits, issue, screenshots, or release notes.
-- Current branch diff or commit list when the user asks for the current branch. Gather it
-  yourself with `git diff <base>...HEAD` and `git log <base>..HEAD --oneline` (default base
-  to the repo's main branch).
+- Current branch diff or commit list when the user asks for the current branch.
 - Attached screenshot only as context for what screenshot might be useful; do not describe unrelated visual details.
 
 If important context is missing, ask one concise clarification question. Otherwise, make a reasonable draft.
@@ -131,5 +129,3 @@ Title: Feat: Add Factorial Analysis Report
 
 ...
 ```
-
-Output the text only. Do not create or push the PR unless the user explicitly asks.

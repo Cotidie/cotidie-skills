@@ -9,7 +9,7 @@
     {
       "name": "cotidie",
       "description": "PR writing, iteration roadmaps, and Codex image generation skills.",
-      "source": "./plugins/cotidie",
+      "source": "./claude",
       "category": "productivity"
     }
   ]
