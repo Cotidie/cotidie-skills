@@ -16,6 +16,7 @@ Codex.
 | [cotidie:codex-image](claude/skills/codex-image) | Generate or edit raster images via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](claude/skills/codex-image/example) |
 | [cotidie:create-class-diagram](claude/skills/create-class-diagram) | Create lean, monochrome UML class diagrams as uncompressed `.drawio` XML (written to the working directory), emphasizing OOP structure, SOLID, and dependency flow. | - |
 | [cotidie:modify-class-diagram](claude/skills/modify-class-diagram) | Conservatively update an existing on-disk `.drawio` class diagram to match a codebase, preserving IDs, layout, and style. | - |
+| [cotidie:cli-user-test](claude/skills/cli-user-test) | Validate a built, unit-tested program as a real user would: drive it through the terminal with varied and adversarial inputs and report what works or breaks. | - |
 
 ### Codex (`codex/`)
 
@@ -25,6 +26,7 @@ Codex.
 | [cotidie:pr-writer](codex/skills/pr-writer) | Codex-safe port of the PR writer (no `trigger`/`AskUserQuestion`/`gh` refs). |
 | [cotidie:create-class-diagram](codex/skills/create-class-diagram) | Codex-safe port for creating lean, monochrome UML class diagrams as uncompressed `.drawio` XML. |
 | [cotidie:modify-class-diagram](codex/skills/modify-class-diagram) | Codex-safe port for conservatively updating an existing `.drawio` class diagram against a codebase. |
+| [cotidie:cli-user-test](codex/skills/cli-user-test) | Codex-safe port of the CLI user test skill (no `trigger`; doc mentions generalized to AGENTS.md/CLAUDE.md). |
 
 ## Layout
 
@@ -39,6 +41,7 @@ claude/
   skills/
     iteration-roadmap/
     pr-writer/
+    cli-user-test/
     codex-image/          # Claude Code only
     create-class-diagram/
     modify-class-diagram/
@@ -50,6 +53,7 @@ codex/
     pr-writer/            # Codex-safe port
     create-class-diagram/ # Codex-safe port
     modify-class-diagram/ # Codex-safe port
+    cli-user-test/        # Codex-safe port
 ```
 
 Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
@@ -95,6 +99,11 @@ claude plugin details cotidie   # lists the 5 bundled skills
 Skills load on the next session as `cotidie:codex-image`,
 `cotidie:create-class-diagram`, `cotidie:iteration-roadmap`,
 `cotidie:modify-class-diagram`, and `cotidie:pr-writer`.
+claude plugin details cotidie   # lists the 4 bundled skills
+```
+
+Skills load on the next session as `cotidie:cli-user-test`,
+`cotidie:codex-image`, `cotidie:iteration-roadmap`, and `cotidie:pr-writer`.
 
 ### Codex CLI (plugin)
 
