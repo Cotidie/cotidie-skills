@@ -91,6 +91,15 @@ In tiers, and **don't fix silently**:
 
 - **Guessing how to run it.** No run doc → ask for one; don't invent the command (step 1).
 - **Only the happy path.** That's what unit tests already cover. Spend time on edges.
+- **Stubbing an external _clean_ and stopping.** When you replace a metered/real dependency
+  to run offline, also drive the fake _misbehaving_ (raises, returns malformed/partial/
+  wrong-typed/empty). A clean stub only proves the happy path; the bug is usually in how the
+  program handles the dependency misbehaving — and one tiny live run won't hit a rare bad
+  response, so fault-inject at the seam instead of trusting scale alone.
+- **Assuming an existing layer is still covered.** A new feature feeds old code (parsers,
+  normalizers, comparison, dedup) a new data distribution. Re-probe that layer with the new
+  feature's actual values (exotic/mixed types, edge outputs), even if a prior iteration
+  tested it — don't scope-test only the new surface.
 - **Blaming code for a config failure.** A 401/missing-key/port-in-use is usually config,
   not a bug. Confirm the code surfaced it cleanly; report the config separately.
 - **`pkill -f <pattern>` that also matches your own new process** → it kills itself
