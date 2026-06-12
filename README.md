@@ -17,6 +17,7 @@ Codex.
 | [cotidie:create-class-diagram](claude/skills/create-class-diagram) | Create lean, monochrome UML class diagrams as uncompressed `.drawio` XML (written to the working directory), emphasizing OOP structure, SOLID, and dependency flow. | - |
 | [cotidie:modify-class-diagram](claude/skills/modify-class-diagram) | Conservatively update an existing on-disk `.drawio` class diagram to match a codebase, preserving IDs, layout, and style. | - |
 | [cotidie:cli-user-test](claude/skills/cli-user-test) | Validate a built, unit-tested program as a real user would: drive it through the terminal with varied and adversarial inputs and report what works or breaks. | - |
+| [cotidie:extract-slide-design](claude/skills/extract-slide-design) | Reverse-engineer reference slide images, deck screenshots, or report PDFs into a reusable `DESIGN.md` visual design system (palette, typography, layout families) for downstream PPT generation. | - |
 
 ### Codex (`codex/`)
 
@@ -27,6 +28,7 @@ Codex.
 | [cotidie:create-class-diagram](codex/skills/create-class-diagram) | Codex-safe port for creating lean, monochrome UML class diagrams as uncompressed `.drawio` XML. |
 | [cotidie:modify-class-diagram](codex/skills/modify-class-diagram) | Codex-safe port for conservatively updating an existing `.drawio` class diagram against a codebase. |
 | [cotidie:cli-user-test](codex/skills/cli-user-test) | Codex-safe port of the CLI user test skill (no `trigger`; doc mentions generalized to AGENTS.md/CLAUDE.md). |
+| [cotidie:extract-slide-design](codex/skills/extract-slide-design) | Codex-safe port (no `trigger`) for reverse-engineering slide references into a reusable `DESIGN.md` visual design system. |
 
 ## Layout
 
@@ -42,6 +44,7 @@ claude/
     iteration-roadmap/
     pr-writer/
     cli-user-test/
+    extract-slide-design/
     codex-image/          # Claude Code only
     create-class-diagram/
     modify-class-diagram/
@@ -54,6 +57,7 @@ codex/
     create-class-diagram/ # Codex-safe port
     modify-class-diagram/ # Codex-safe port
     cli-user-test/        # Codex-safe port
+    extract-slide-design/ # Codex-safe port
 ```
 
 Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
