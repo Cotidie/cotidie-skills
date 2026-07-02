@@ -30,12 +30,6 @@ claude plugin marketplace add Cotidie/cotidie-skills
 claude plugin install cotidie@cotidie-skills
 ```
 
-Skills load on the next session as `cotidie:cli-user-test`,
-`cotidie:codex-image`, `cotidie:create-class-diagram`,
-`cotidie:extract-slide-design`, `cotidie:iteration-roadmap`,
-`cotidie:modify-class-diagram`, `cotidie:pr-writer`, and
-`cotidie:scaffold-react`.
-
 ### Codex CLI (plugin)
 
 This repo includes a local Codex marketplace at `.agents/plugins/marketplace.json`.
