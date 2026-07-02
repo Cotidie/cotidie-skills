@@ -10,15 +10,16 @@ Codex.
 Use `cotidie:<skill>` in Claude Code and `$cotidie:<skill>` in Codex for supported
 hosts.
 
-| Skill | Description | Claude | Codex | Example |
-|-------|-------------|--------|-------|---------|
-| `cli-user-test` | Validate a built, unit-tested program as a real user would from the terminal. | [✅](claude/skills/cli-user-test) | [✅](codex/skills/cli-user-test) | - |
-| `codex-image` | Generate or edit raster images through the Codex CLI image tool. | [✅](claude/skills/codex-image) | ❌ | [prompt + result](claude/skills/codex-image/example) |
-| `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format. | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) | - |
-| `extract-slide-design` | Reverse-engineer slide images, deck screenshots, or report PDFs into a reusable `DESIGN.md`. | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) | - |
-| `iteration-roadmap` | Break a project or feature into small, vertical, user-testable iterations. | [✅](claude/skills/iteration-roadmap) | [✅](codex/skills/iteration-roadmap) | - |
-| `modify-class-diagram` | Update an existing `.drawio` UML class diagram to match a target codebase. | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) | - |
-| `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) | - |
+| Skill | Description | Claude | Codex |
+|-------|-------------|--------|-------|
+| `cli-user-test` | Validate a built, unit-tested program as a real user would from the terminal. | [✅](claude/skills/cli-user-test) | [✅](codex/skills/cli-user-test) |
+| `codex-image` | Generate or edit raster images through the Codex CLI image tool. | [✅](claude/skills/codex-image) | ❌ |
+| `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format. | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) |
+| `extract-slide-design` | Reverse-engineer slide images, deck screenshots, or report PDFs into a reusable `DESIGN.md`. | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) |
+| `iteration-roadmap` | Break a project or feature into small, vertical, user-testable iterations. | [✅](claude/skills/iteration-roadmap) | [✅](codex/skills/iteration-roadmap) |
+| `modify-class-diagram` | Update an existing `.drawio` UML class diagram to match a target codebase. | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) |
+| `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) |
+| `scaffold-react` | Create new React apps or refactor existing React apps to the bundled scaffold conventions. | ❌ | [✅](codex/skills/scaffold-react) |
 
 ## Layout
 
@@ -48,6 +49,7 @@ codex/
     modify-class-diagram/ # Codex-safe port
     cli-user-test/        # Codex-safe port
     extract-slide-design/ # Codex-safe port
+    scaffold-react/       # Codex-safe React scaffold workflow
 ```
 
 Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
@@ -114,6 +116,7 @@ $cotidie:pr-writer
 $cotidie:create-class-diagram
 $cotidie:modify-class-diagram
 $cotidie:extract-slide-design
+$cotidie:scaffold-react
 ```
 
 For local authoring without the plugin namespace, you can still symlink a

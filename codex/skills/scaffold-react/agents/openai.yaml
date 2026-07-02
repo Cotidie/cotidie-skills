@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scaffold React"
+  short_description: "React scaffold and refactor conventions"
+  default_prompt: "Use $scaffold-react to scaffold a new React app or refactor an existing React project toward the repository conventions."
