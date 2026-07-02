@@ -57,6 +57,7 @@ Why this change exists. Keep this to no more than 3 lines.
 ## Changes
 
 - High-level change.
+  - Optional supporting detail.
 - High-level change.
 
 ## Refactoring
@@ -87,10 +88,13 @@ Explain the motivation, not the implementation. Keep it short.
 
 Use concise bullets like a teammate-facing changelog. Good bullets describe what changed and why it matters.
 
+Use at most 6 main (top-level) bullets. Pick only the most important changes; fold or drop the rest. Indented sub-bullets are allowed for supporting detail and do not count toward the 6.
+
 Example style:
 
 ```markdown
 - Added a WiFi demo flow for connecting and sending sample data.
+  - Handles reconnect and a simple retry on failure.
 - Added a small server endpoint for receiving device messages.
 - Added setup notes for running the demo locally.
 ```
