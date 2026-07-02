@@ -21,43 +21,6 @@ hosts.
 | `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) |
 | `scaffold-react` | Create new React apps or refactor existing React apps to the bundled scaffold conventions. | ❌ | [✅](codex/skills/scaffold-react) |
 
-## Layout
-
-```
-.claude-plugin/
-  marketplace.json        # Claude Code marketplace manifest (points at ./claude)
-.agents/plugins/
-  marketplace.json        # Codex marketplace manifest (points at ./codex)
-claude/
-  .claude-plugin/
-    plugin.json           # Claude Code plugin manifest (skills: ./skills/)
-  skills/
-    iteration-roadmap/
-    pr-writer/
-    cli-user-test/
-    extract-slide-design/
-    codex-image/          # Claude Code only
-    create-class-diagram/
-    modify-class-diagram/
-codex/
-  .codex-plugin/
-    plugin.json           # Codex plugin manifest (skills: ./skills/)
-  skills/
-    iteration-roadmap/    # Codex-safe port
-    pr-writer/            # Codex-safe port
-    create-class-diagram/ # Codex-safe port
-    modify-class-diagram/ # Codex-safe port
-    cli-user-test/        # Codex-safe port
-    extract-slide-design/ # Codex-safe port
-    scaffold-react/       # Codex-safe React scaffold workflow
-```
-
-Each skill is a folder containing a `SKILL.md` (YAML frontmatter with `name` +
-`description`, followed by markdown instructions) plus any supporting scripts or
-reference files. Claude and Codex keep separate skill copies so each can carry
-host-specific instructions. Claude-bundled scripts reference their location via
-`${CLAUDE_PLUGIN_ROOT}`.
-
 ## Installing
 
 ### Claude Code (plugin)
