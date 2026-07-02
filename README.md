@@ -19,7 +19,7 @@ hosts.
 | `iteration-roadmap` | Break a project or feature into small, vertical, user-testable iterations. | [✅](claude/skills/iteration-roadmap) | [✅](codex/skills/iteration-roadmap) |
 | `modify-class-diagram` | Update an existing `.drawio` UML class diagram to match a target codebase. | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) |
 | `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) |
-| `scaffold-react` | Create new React apps or refactor existing React apps to the bundled scaffold conventions. | ❌ | [✅](codex/skills/scaffold-react) |
+| `scaffold-react` | Create new React apps or refactor existing React apps to the bundled scaffold conventions. | [✅](claude/skills/scaffold-react) | [✅](codex/skills/scaffold-react) |
 
 ## Installing
 
@@ -52,13 +52,14 @@ Verify and inspect:
 
 ```bash
 claude plugin list              # cotidie@cotidie-skills → enabled
-claude plugin details cotidie   # lists the 7 bundled skills
+claude plugin details cotidie   # lists the 8 bundled skills
 ```
 
 Skills load on the next session as `cotidie:cli-user-test`,
 `cotidie:codex-image`, `cotidie:create-class-diagram`,
 `cotidie:extract-slide-design`, `cotidie:iteration-roadmap`,
-`cotidie:modify-class-diagram`, and `cotidie:pr-writer`.
+`cotidie:modify-class-diagram`, `cotidie:pr-writer`, and
+`cotidie:scaffold-react`.
 
 ### Codex CLI (plugin)
 
