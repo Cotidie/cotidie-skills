@@ -87,6 +87,10 @@ Use concise bullets like a teammate-facing changelog. Good bullets describe what
 
 Use at most 6 main (top-level) bullets. Pick only the most important changes; fold or drop the rest. Indented sub-bullets are allowed for supporting detail and do not count toward the 6.
 
+Do not list test code, fixtures, snapshots, or coverage changes in the Changes section.
+They naturally follow the implementation. Mention test commands only in How to run when useful
+for verification.
+
 Example style:
 
 ```markdown
