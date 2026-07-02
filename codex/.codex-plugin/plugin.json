@@ -1,6 +1,6 @@
 {
   "name": "cotidie",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, UML class diagrams, CLI user testing, slide design extraction and React scaffolding.",
   "skills": "./skills/",
   "author": {
