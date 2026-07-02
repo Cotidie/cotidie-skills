@@ -7,28 +7,18 @@ Codex.
 
 ## Skills
 
-### Claude Code (`claude/`)
+Use `cotidie:<skill>` in Claude Code and `$cotidie:<skill>` in Codex for supported
+hosts.
 
-| Skill | Description | Example |
-|-------|-------------|---------|
-| [cotidie:iteration-roadmap](claude/skills/iteration-roadmap) | Break a project or feature into an adaptive roadmap of small, vertical, user-testable iterations: detailed near-term, flexible later, revised after each ship. | - |
-| [cotidie:pr-writer](claude/skills/pr-writer) | Draft a PR/MR title and body from the branch diff, commits, or a summary. | - |
-| [cotidie:codex-image](claude/skills/codex-image) | Generate or edit raster images via the Codex CLI's `image_gen` tool (no `OPENAI_API_KEY`). | [prompt + result](claude/skills/codex-image/example) |
-| [cotidie:create-class-diagram](claude/skills/create-class-diagram) | Create lean, monochrome UML class diagrams as uncompressed `.drawio` XML (written to the working directory), emphasizing OOP structure, SOLID, and dependency flow. | - |
-| [cotidie:modify-class-diagram](claude/skills/modify-class-diagram) | Conservatively update an existing on-disk `.drawio` class diagram to match a codebase, preserving IDs, layout, and style. | - |
-| [cotidie:cli-user-test](claude/skills/cli-user-test) | Validate a built, unit-tested program as a real user would: drive it through the terminal with varied and adversarial inputs and report what works or breaks. | - |
-| [cotidie:extract-slide-design](claude/skills/extract-slide-design) | Reverse-engineer reference slide images, deck screenshots, or report PDFs into a reusable `DESIGN.md` visual design system (palette, typography, layout families) for downstream PPT generation. | - |
-
-### Codex (`codex/`)
-
-| Skill | Description |
-|-------|-------------|
-| [cotidie:iteration-roadmap](codex/skills/iteration-roadmap) | Codex-safe port of the roadmap skill (no `trigger`/`AskUserQuestion`/superpowers refs). |
-| [cotidie:pr-writer](codex/skills/pr-writer) | Codex-safe port of the PR writer (no `trigger`/`AskUserQuestion`/`gh` refs). |
-| [cotidie:create-class-diagram](codex/skills/create-class-diagram) | Codex-safe port for creating lean, monochrome UML class diagrams as uncompressed `.drawio` XML. |
-| [cotidie:modify-class-diagram](codex/skills/modify-class-diagram) | Codex-safe port for conservatively updating an existing `.drawio` class diagram against a codebase. |
-| [cotidie:cli-user-test](codex/skills/cli-user-test) | Codex-safe port of the CLI user test skill (no `trigger`; doc mentions generalized to AGENTS.md/CLAUDE.md). |
-| [cotidie:extract-slide-design](codex/skills/extract-slide-design) | Codex-safe port (no `trigger`) for reverse-engineering slide references into a reusable `DESIGN.md` visual design system. |
+| Skill | Description | Claude | Codex | Example |
+|-------|-------------|--------|-------|---------|
+| `cli-user-test` | Validate a built, unit-tested program as a real user would from the terminal. | [✅](claude/skills/cli-user-test) | [✅](codex/skills/cli-user-test) | - |
+| `codex-image` | Generate or edit raster images through the Codex CLI image tool. | [✅](claude/skills/codex-image) | ❌ | [prompt + result](claude/skills/codex-image/example) |
+| `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format. | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) | - |
+| `extract-slide-design` | Reverse-engineer slide images, deck screenshots, or report PDFs into a reusable `DESIGN.md`. | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) | - |
+| `iteration-roadmap` | Break a project or feature into small, vertical, user-testable iterations. | [✅](claude/skills/iteration-roadmap) | [✅](codex/skills/iteration-roadmap) | - |
+| `modify-class-diagram` | Update an existing `.drawio` UML class diagram to match a target codebase. | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) | - |
+| `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) | - |
 
 ## Layout
 
@@ -97,17 +87,13 @@ Verify and inspect:
 
 ```bash
 claude plugin list              # cotidie@cotidie-skills → enabled
-claude plugin details cotidie   # lists the 5 bundled skills
-```
-
-Skills load on the next session as `cotidie:codex-image`,
-`cotidie:create-class-diagram`, `cotidie:iteration-roadmap`,
-`cotidie:modify-class-diagram`, and `cotidie:pr-writer`.
-claude plugin details cotidie   # lists the 4 bundled skills
+claude plugin details cotidie   # lists the 7 bundled skills
 ```
 
 Skills load on the next session as `cotidie:cli-user-test`,
-`cotidie:codex-image`, `cotidie:iteration-roadmap`, and `cotidie:pr-writer`.
+`cotidie:codex-image`, `cotidie:create-class-diagram`,
+`cotidie:extract-slide-design`, `cotidie:iteration-roadmap`,
+`cotidie:modify-class-diagram`, and `cotidie:pr-writer`.
 
 ### Codex CLI (plugin)
 
@@ -122,10 +108,12 @@ Install and enable `cotidie` from the `Cotidie Skills` marketplace. The bundled
 Codex skills then invoke as:
 
 ```text
+$cotidie:cli-user-test
 $cotidie:iteration-roadmap
 $cotidie:pr-writer
 $cotidie:create-class-diagram
 $cotidie:modify-class-diagram
+$cotidie:extract-slide-design
 ```
 
 For local authoring without the plugin namespace, you can still symlink a
