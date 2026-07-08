@@ -16,6 +16,7 @@ hosts.
 | `codex-image` | Generate or edit raster images through the Codex CLI image tool. | [✅](claude/skills/codex-image) | ❌ |
 | `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format. | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) |
 | `extract-slide-design` | Reverse-engineer slide images, deck screenshots, or report PDFs into a reusable `DESIGN.md`. | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) |
+| `humanizer` | Remove signs of AI-generated writing from text. Adapted from [blader/humanizer](https://github.com/blader/humanizer). | [✅](claude/skills/humanizer) | [✅](codex/skills/humanizer) |
 | `iteration-roadmap` | Break a project or feature into small, vertical, user-testable iterations. | [✅](claude/skills/iteration-roadmap) | [✅](codex/skills/iteration-roadmap) |
 | `modify-class-diagram` | Update an existing `.drawio` UML class diagram to match a target codebase. | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) |
 | `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) |
@@ -50,6 +51,7 @@ $cotidie:create-class-diagram
 $cotidie:modify-class-diagram
 $cotidie:extract-slide-design
 $cotidie:scaffold-react
+$cotidie:humanizer
 ```
 
 For local authoring without the plugin namespace, you can still symlink a

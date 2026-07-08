@@ -1,15 +1,15 @@
 {
   "name": "cotidie",
-  "version": "0.2.0",
-  "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, UML class diagrams, CLI user testing, slide design extraction and React scaffolding.",
+  "version": "0.3.0",
+  "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, UML class diagrams, CLI user testing, slide design extraction, React scaffolding and humanizing AI-sounding text.",
   "skills": "./skills/",
   "author": {
     "name": "Cotidie"
   },
   "interface": {
     "displayName": "Cotidie",
-    "shortDescription": "Custom Codex workflows for PR writing, iteration roadmaps, UML class diagrams, CLI user testing, slide design extraction and React scaffolding.",
-    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text, planning vertical user-testable iterations, creating or modifying UML class diagrams as draw.io files, driving built programs through the terminal as a real user to surface bugs, reverse-engineering reference slides into a reusable DESIGN.md visual design system and scaffolding or refactoring React apps.",
+    "shortDescription": "Custom Codex workflows for PR writing, iteration roadmaps, UML class diagrams, CLI user testing, slide design extraction, React scaffolding and humanizing text.",
+    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text, planning vertical user-testable iterations, creating or modifying UML class diagrams as draw.io files, driving built programs through the terminal as a real user to surface bugs, reverse-engineering reference slides into a reusable DESIGN.md visual design system, scaffolding or refactoring React apps and rewriting AI-sounding prose into more natural text.",
     "developerName": "Cotidie",
     "category": "Productivity",
     "capabilities": [
@@ -19,8 +19,9 @@
       "Modify existing UML class diagrams against code",
       "Drive built programs as a real user and report findings",
       "Reverse-engineer reference slides into a reusable DESIGN.md design system",
-      "Scaffold or refactor React apps with bundled conventions"
+      "Scaffold or refactor React apps with bundled conventions",
+      "Rewrite AI-sounding text into more natural prose"
     ],
-    "defaultPrompt": "Use $cotidie:pr-writer, $cotidie:iteration-roadmap, $cotidie:create-class-diagram, $cotidie:modify-class-diagram, $cotidie:cli-user-test, $cotidie:extract-slide-design or $cotidie:scaffold-react."
+    "defaultPrompt": "Use $cotidie:pr-writer, $cotidie:iteration-roadmap, $cotidie:create-class-diagram, $cotidie:modify-class-diagram, $cotidie:cli-user-test, $cotidie:extract-slide-design, $cotidie:scaffold-react or $cotidie:humanizer."
   }
 }
