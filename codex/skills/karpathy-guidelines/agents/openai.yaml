@@ -1,0 +1,7 @@
+interface:
+  display_name: "Karpathy Coding Guidelines"
+  short_description: "Surgical, simple, verifiable coding work"
+  default_prompt: "Use $karpathy-guidelines to complete this coding task with minimal changes and explicit verification."
+
+policy:
+  allow_implicit_invocation: true

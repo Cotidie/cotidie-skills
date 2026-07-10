@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "cotidie",
-      "description": "PR writing, iteration roadmaps, CLI user testing, UML class diagram, slide design extraction, Codex image generation and React scaffolding skills.",
+      "description": "PR writing, iteration roadmaps, coding guidelines, CLI user testing, UML class diagram, slide design extraction, Codex image generation and React scaffolding skills.",
       "source": "./claude",
       "category": "productivity"
     }

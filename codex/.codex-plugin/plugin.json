@@ -1,20 +1,21 @@
 {
   "name": "cotidie",
-  "version": "0.3.0",
-  "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, UML class diagrams, CLI user testing, slide design extraction, React scaffolding and humanizing AI-sounding text.",
+  "version": "0.4.0",
+  "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, coding guidelines, UML class diagrams, CLI user testing, slide design extraction, React scaffolding and humanizing AI-sounding text.",
   "skills": "./skills/",
   "author": {
     "name": "Cotidie"
   },
   "interface": {
     "displayName": "Cotidie",
-    "shortDescription": "Custom Codex workflows for PR writing, iteration roadmaps, UML class diagrams, CLI user testing, slide design extraction, React scaffolding and humanizing text.",
-    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text, planning vertical user-testable iterations, creating or modifying UML class diagrams as draw.io files, driving built programs through the terminal as a real user to surface bugs, reverse-engineering reference slides into a reusable DESIGN.md visual design system, scaffolding or refactoring React apps and rewriting AI-sounding prose into more natural text.",
+    "shortDescription": "Custom Codex workflows for PR writing, iteration roadmaps, coding guidelines, UML class diagrams, CLI user testing, slide design extraction, React scaffolding and humanizing text.",
+    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text, planning vertical user-testable iterations, keeping coding work simple and verifiable, creating or modifying UML class diagrams as draw.io files, driving built programs through the terminal as a real user to surface bugs, reverse-engineering reference slides into a reusable DESIGN.md visual design system, scaffolding or refactoring React apps and rewriting AI-sounding prose into more natural text.",
     "developerName": "Cotidie",
     "category": "Productivity",
     "capabilities": [
       "Draft PR and MR titles and bodies",
       "Plan adaptive delivery roadmaps",
+      "Keep coding changes simple, surgical and verifiable",
       "Create UML class diagrams as draw.io files",
       "Modify existing UML class diagrams against code",
       "Drive built programs as a real user and report findings",
@@ -22,6 +23,6 @@
       "Scaffold or refactor React apps with bundled conventions",
       "Rewrite AI-sounding text into more natural prose"
     ],
-    "defaultPrompt": "Use $cotidie:pr-writer, $cotidie:iteration-roadmap, $cotidie:create-class-diagram, $cotidie:modify-class-diagram, $cotidie:cli-user-test, $cotidie:extract-slide-design, $cotidie:scaffold-react or $cotidie:humanizer."
+    "defaultPrompt": "Use $cotidie:pr-writer, $cotidie:iteration-roadmap, $cotidie:karpathy-guidelines, $cotidie:create-class-diagram, $cotidie:modify-class-diagram, $cotidie:cli-user-test, $cotidie:extract-slide-design, $cotidie:scaffold-react or $cotidie:humanizer."
   }
 }
