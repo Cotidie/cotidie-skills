@@ -22,6 +22,7 @@ hosts.
 | `modify-class-diagram` | Update an existing `.drawio` UML class diagram to match a target codebase. | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) |
 | `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) |
 | `scaffold-react` | Create new React apps or refactor existing React apps to the bundled scaffold conventions. | [✅](claude/skills/scaffold-react) | [✅](codex/skills/scaffold-react) |
+| `textbook-notes` | Distill math-heavy textbook chapter PDFs into Notion-style study notes with offline HTML output. | [✅](claude/skills/textbook-notes) | [✅](codex/skills/textbook-notes) |
 
 ### Vendored Skills
 
@@ -63,6 +64,7 @@ $cotidie:create-class-diagram
 $cotidie:modify-class-diagram
 $cotidie:extract-slide-design
 $cotidie:scaffold-react
+$cotidie:textbook-notes
 $cotidie:humanizer
 ```
 

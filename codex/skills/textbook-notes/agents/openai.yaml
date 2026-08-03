@@ -1,0 +1,7 @@
+interface:
+  display_name: "Textbook Notes"
+  short_description: "Distill textbook chapters into study notes"
+  default_prompt: "Use $textbook-notes to distill a textbook chapter PDF into a Notion-style study note with self-contained HTML output."
+
+policy:
+  allow_implicit_invocation: true
