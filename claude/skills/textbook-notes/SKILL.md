@@ -36,7 +36,8 @@ terminology, math kept exact.
 parallel file `chNN-<slug>.<lang>.md` (e.g. `.ko.md`) next to the English
 one, never a replacement; link both versions in index.md and cross-link
 them in each note's header table. Callout titles follow the note language
-(`::: goal 목표`).
+(`::: goal 목표`). Heading titles stay the book's exact titles in the
+book's language, never translated or paraphrased (see note-style.md).
 
 1. Locate the unit's page range (see "Locating a unit" below).
 2. Read those PDF pages with the Read tool (max 20 pages per call).
@@ -92,7 +93,9 @@ keeping the same body markup.
 
 ## Callout syntax (implemented by scripts/render.mjs)
 
-Types: `goal`, `definition`, `warning`, `tip`, `qa`, `gap`, `summary`.
+Types: `goal`, `gap`, `insight`, `qa`, `warning`, `summary`.
+Color semantics and box criteria live in `references/note-style.md`;
+`goal`/`summary` render as quiet bookends, the other four as boxes.
 
 ```
 ::: warning The trap of small eigenvalues

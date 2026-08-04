@@ -10,11 +10,10 @@ import anchor from 'markdown-it-anchor'
 
 export const CALLOUTS = {
   goal: { icon: '🎯', label: 'Goal' },
-  definition: { icon: '📖', label: 'Definition' },
-  warning: { icon: '⚠️', label: 'Warning' },
-  tip: { icon: '💡', label: 'Intuition' },
+  gap: { icon: '🔗', label: 'Going deeper' },
+  insight: { icon: '💡', label: 'Insight' },
   qa: { icon: '❓', label: 'Q&A' },
-  gap: { icon: '🔗', label: 'Filling the gap' },
+  warning: { icon: '⚠️', label: 'Warning' },
   summary: { icon: '📌', label: 'Takeaway' },
 }
 

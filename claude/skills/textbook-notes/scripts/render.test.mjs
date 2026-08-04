@@ -25,12 +25,12 @@ test('renders callout containers with icon and custom title', () => {
 test('callout title falls back to default label', () => {
   const md = createRenderer()
   const html = md.render('::: gap\nrestored steps\n:::\n')
-  assert.match(html, /Filling the gap/)
+  assert.match(html, /Going deeper/)
 })
 
 test('all callout types render', () => {
   const md = createRenderer()
-  for (const name of ['goal', 'definition', 'warning', 'tip', 'qa', 'gap', 'summary']) {
+  for (const name of ['goal', 'gap', 'insight', 'qa', 'warning', 'summary']) {
     assert.match(md.render(`::: ${name}\nx\n:::\n`), new RegExp(`callout-${name}`))
   }
 })
