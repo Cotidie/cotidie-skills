@@ -31,6 +31,31 @@ structure is not baby talk: never dumb down the terms, only the syntax.
 - Bullets are fragments, not essays: one line each when possible, no
   trailing sub-clauses. Use numbered lists only when order matters.
 
+## Storytelling
+
+The note reads as one continuous story, not a stack of definitions.
+Settled with the user (2026-08-04): two devices, applied at intros and
+hinges only.
+
+- Unresolved-problem relay: every H2 opens by naming the problem the
+  previous section (or chapter) left unsolved, and the chapter body ends
+  by exposing the next unsolved problem before the takeaway. The chapter
+  `goal` names the problem the previous chapter left open.
+- Motivation before object: never open with a definition. First show the
+  blocked need in 1-3 sentences ("we want X; Y blocks it"), then present
+  the new object as the tool that unblocks it. If you cannot say why a
+  definition is needed at this point of the story, it is in the wrong
+  place.
+- Hinge paragraphs: 1-3 plain sentences at section and concept
+  boundaries connecting what just happened to what comes next. Hinges
+  are prose, never bullets.
+- One running example per book, chosen at book start (e.g. "generate a
+  dog photo") and touched at least once per chapter, so every abstract
+  object lands on the same concrete task.
+- Density limit: narrative lives in intros and hinges only. Derivations,
+  properties, and enumerations stay bullets and display math. Total
+  length may grow ~20-30% over a bare distillation, no more.
+
 ## Structure
 
 - H1 chapter title, H2 sections, H3 subsections, H4 for mini-headers
@@ -52,10 +77,20 @@ structure is not baby talk: never dumb down the terms, only the syntax.
 
 - Reproduce every load-bearing equation in display math, keeping the
   book's equation numbers in trailing tags like `\tag{4.4}`.
+- Intuition outranks derivation. An equation is the formalization of an
+  intuition that existed first; the body states that intuition, and
+  multi-step algebra goes to `proof` boxes. Body answers "why should
+  this be true" and "what does it do"; the box answers "how to show it".
 - Right after each equation, add one short sentence saying what it means
   in plain words. Skip it only when the surrounding prose already does.
+- Read load-bearing equations term by term: name the ROLE of each term
+  or factor, i.e. what it pushes toward, penalizes, rescales, weights,
+  or balances ("the drift pulls to 0, the noise pushes out", "the
+  regularization term penalizes large parameters"). A term whose role
+  you cannot name means the equation is not yet understood: dig, or
+  mark it as an open question for revise mode.
 - When the book jumps between two equations, restore the intermediate
-  algebra inside a `::: gap` callout. Say explicitly it is not in the book.
+  algebra inside a `::: gap` callout.
 - Prefer aligned derivations (`\begin{aligned}`) over prose descriptions
   of algebra. Let the math talk; keep the prose around it short.
 - Break wide equations into two or more `\begin{aligned}` lines instead of
@@ -72,11 +107,17 @@ block only when one of these holds; otherwise write prose:
 - The reader may skip it on a first read (enrichment) → teal or ochre.
 - The reader must not miss it (trap) → coral.
 
+Never write provenance disclaimers, in boxes, body, or figure captions:
+no "not in the book", "책에 없는 내용", "the book leaves this open",
+"책이 다루지 않는 질문". The callout type and color already carry that
+signal; the phrases are bookkeeping noise. Naming a concrete outside
+source ("this is Tweedie's formula") is content and stays.
+
 Two things never get a box:
 
-- Definitions and theorems. They belong in the body prose; they are the
-  note's core content, not an aside. Never re-define in a box what the
-  body already defines.
+- Definitions and theorem STATEMENTS. They belong in the body prose; they
+  are the note's core content, not an aside. Never re-define in a box what
+  the body already defines. (Their multi-step PROOFS do get a box: `proof`.)
 - Plain restatements of book content in easier words. Making the book
   easy IS the body's job.
 
@@ -86,13 +127,22 @@ Box types, by color:
   - `gap`: anything the book skips over that the reader needs: restored
     derivations and proofs, bridging algebra between two equations,
     logical jumps and missed connections between statements, and
-    verification checks ("why 4(k-1) equations"). Say explicitly what
-    is not in the book.
+    verification checks ("why 4(k-1) equations"). Also use `gap` for a
+    cross-chapter recap: when
+    the body cites an equation from another chapter, restate it in a
+    lavender box titled "Recap from Ch.N" so the page stands alone
+    (hover previews do not survive print).
+  - `proof` (dashed border): a multi-step proof or derivation the book
+    DOES give. Boxing it marks "the conclusion matters; the chain is
+    skimmable", so the reader can decide to skip or dive. The theorem
+    statement and its meaning stay in the body; only the proof chain
+    goes in the box. One-line proofs stay in the body. Rule of thumb:
+    `gap` = what the book skips, `proof` = what the book gives but the
+    reader may skip.
 - Teal, beyond the book:
   - `insight`: content that needs knowledge from outside the chapter:
     applications, links to other chapters or fields, practice notes.
-    Name the outside source ("this is Gauss-Seidel relaxation") and mark
-    it as not from the book.
+    Name the outside source ("this is Gauss-Seidel relaxation").
 - Ochre, creative:
   - `qa`: a novel question with a full answer. Only questions whose
     answer is not already plain in the body; delete routine
@@ -123,9 +173,11 @@ Quiet structural bookends (no box, do not count toward box rules):
 
 Budget and spacing:
 
-- `insight` + `qa` combined: at most 2 per H2 section. They are content
-  you add, so they are rationed; `gap` count follows what the book
-  skips.
+- `insight` + `qa` combined: at most 3 per H2 section. They are content
+  you add; `gap` count follows what the book skips.
+- A substantial H2 with no boxes is a smell: look again for a skipped
+  derivation, an outside link, or a question worth asking. The reader
+  prefers callout-rich notes over bare ones.
 - Never three boxes in a row. Two in a row only when their colors
   differ. Prefer prose between boxes.
 

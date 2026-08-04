@@ -93,9 +93,15 @@ keeping the same body markup.
 
 ## Callout syntax (implemented by scripts/render.mjs)
 
-Types: `goal`, `gap`, `insight`, `qa`, `warning`, `summary`.
+Types: `goal`, `gap`, `proof`, `insight`, `qa`, `warning`, `summary`.
 Color semantics and box criteria live in `references/note-style.md`;
-`goal`/`summary` render as quiet bookends, the other four as boxes.
+`goal`/`summary` render as quiet bookends, the other five as boxes.
+
+Equation cross-references: display equations carrying `\tag{N}` become
+anchors; textual references like `(20)` in prose auto-link to them, with a
+hover preview of the equation. Works across chapters of the same book via
+`build/eq-map.json` (per language). Rebuild all chapters together; a
+forward reference to a not-yet-rendered chapter needs a second build pass.
 
 ```
 ::: warning The trap of small eigenvalues

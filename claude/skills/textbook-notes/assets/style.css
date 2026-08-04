@@ -112,6 +112,7 @@ blockquote {
 /* Color semantics: lavender = deeper into the book (derive/verify),
    teal = beyond the book, ochre = creative, coral = trap signal. */
 .callout-gap     { border-color: var(--lavender); background: color-mix(in srgb, var(--lavender) 10%, white); }
+.callout-proof   { border-color: var(--lavender); border-style: dashed; background: color-mix(in srgb, var(--lavender) 5%, white); }
 .callout-insight { border-color: var(--teal);     background: color-mix(in srgb, var(--teal) 7%, white); }
 .callout-qa      { border-color: var(--ochre);    background: color-mix(in srgb, var(--ochre) 12%, white); }
 .callout-warning { border-color: var(--coral);    background: color-mix(in srgb, var(--coral) 9%, white); }
@@ -151,3 +152,36 @@ blockquote {
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .toc li a { text-decoration: none; }
 }
+
+/* Equation cross-references: (N) links to \tag{N} anchors, hover preview. */
+a.eqref {
+  color: inherit;
+  text-decoration: underline dotted var(--teal);
+  text-underline-offset: 3px;
+}
+a.eqref:hover { color: var(--teal); }
+.eq-preview {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  background: #ffffff;
+  border: 1.5px solid var(--lavender);
+  border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.14);
+  padding: 2px 18px;
+  max-width: min(680px, 92vw);
+  overflow-x: auto;
+}
+.eq-preview .katex-display { margin: 10px 0; }
+.eq-block:target .katex-display {
+  background: color-mix(in srgb, var(--ochre) 16%, transparent);
+  border-radius: 8px;
+}
+@media print {
+  a.eqref { text-decoration: none; }
+  .eq-preview { display: none !important; }
+}
+
+/* Inside the hover preview the equation container is max-content wide, so
+   the absolutely-positioned \tag would overlap the equation; reserve room. */
+.eq-preview .katex-display > .katex > .katex-html { padding-right: 3.4em; }

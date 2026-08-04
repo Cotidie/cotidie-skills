@@ -92,3 +92,28 @@ test('page shell produces standalone html', () => {
   assert.match(html, /<title>T<\/title>/)
   assert.match(html, /\.x\{\}/)
 })
+
+test('collectEquations finds tagged display blocks', async () => {
+  const { collectEquations } = await import('./render.mjs')
+  const src = '$$a = b \\tag{4}$$\n\ntext\n\n$$c = d$$\n\n$$e \\tag{5a}$$\n'
+  const eqs = collectEquations(src)
+  assert.deepEqual(eqs.map(e => e.tag), ['4', '5a'])
+})
+
+test('linkifyEqRefs links known tags outside math, skips ::: lines', async () => {
+  const { linkifyEqRefs } = await import('./render.mjs')
+  const resolve = tag => (tag === '4' ? '#eq-4' : null)
+  const out = linkifyEqRefs('see (4) and (99)\n\n$$f(4) \\tag{6}$$\n\n::: qa about (4)\nbody (4)\n:::\n', resolve)
+  assert.match(out, /<a class="eqref" data-eq="4" href="#eq-4">\(4\)<\/a> and \(99\)/)
+  assert.match(out, /\$\$f\(4\) \\tag\{6\}\$\$/)
+  assert.match(out, /::: qa about \(4\)\n/)
+  assert.match(out, /body <a class="eqref"/)
+})
+
+test('injectEqAnchors ids tagged sections in order', async () => {
+  const { injectEqAnchors } = await import('./render.mjs')
+  const src = '$$a \\tag{4}$$\n\n$$b$$\n\n$$c \\tag{5}$$\n'
+  const html = '<section>x</section><section>y</section><section>z</section>'
+  const out = injectEqAnchors(html, src)
+  assert.equal(out, '<section class="eq-block" id="eq-4">x</section><section>y</section><section class="eq-block" id="eq-5">z</section>')
+})
