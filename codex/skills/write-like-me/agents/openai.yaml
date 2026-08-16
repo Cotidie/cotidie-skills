@@ -1,0 +1,7 @@
+interface:
+  display_name: "Write Like Me"
+  short_description: "Figure-first knowledge notes in Cotidie's voice"
+  default_prompt: "Use $write-like-me to write this up as a figure-first knowledge note in my documented voice."
+
+policy:
+  allow_implicit_invocation: true

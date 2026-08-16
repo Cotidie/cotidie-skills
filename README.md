@@ -23,6 +23,7 @@ hosts.
 | `pr-writer` | Draft a PR or MR title and body from a branch diff, commits, or summary. | [✅](claude/skills/pr-writer) | [✅](codex/skills/pr-writer) |
 | `scaffold-react` | Create new React apps or refactor existing React apps to the bundled scaffold conventions. | [✅](claude/skills/scaffold-react) | [✅](codex/skills/scaffold-react) |
 | `textbook-notes` | Distill math-heavy textbook chapter PDFs into Notion-style study notes with offline HTML output. | [✅](claude/skills/textbook-notes) | [✅](codex/skills/textbook-notes) |
+| `write-like-me` | Write figure-first knowledge notes in Cotidie's documented voice. | [✅](claude/skills/write-like-me) | [✅](codex/skills/write-like-me) |
 
 ### Vendored Skills
 
@@ -65,6 +66,7 @@ $cotidie:modify-class-diagram
 $cotidie:extract-slide-design
 $cotidie:scaffold-react
 $cotidie:textbook-notes
+$cotidie:write-like-me
 $cotidie:humanizer
 ```
 
