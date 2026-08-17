@@ -112,6 +112,32 @@ Put the explanation load into commented code blocks and figure captions rather t
 His English paragraphs median 20 words; if a paragraph is running long, the content belongs in a
 list, a table, or a code comment.
 
+#### A fenced block has exactly three legal uses
+
+A code fence is for a **directory or file tree**, a **text diagram**, or **real code** — a
+command, a config, file contents, or a template the reader will literally type. Nothing else
+goes inside a fence.
+
+The failure mode is using a fence as a layout tool: settings, parameters, options, versions,
+paths, or spec lines aligned into columns with spaces. **Those are tables.** The signature is two
+or more columns of values separated by whitespace padding, often with `#` comments doing the work
+a table's third column would do. A fence around that content is a lie about its type: the reader
+parses it as code, finds no code, and has to re-read to work out what they are looking at.
+
+| Content | Form |
+|---|---|
+| Directory / file tree | fence |
+| ASCII diagram, flow, layered stack, state machine | fence |
+| Command, config file, source, literal template text | fence |
+| Settings, parameters, versions, paths as key → value | **table** |
+| Two or more things compared on the same axes | **table** |
+| Properties or terms with glosses | `- **Term**: gloss` bullets |
+| A procedure | numbered list |
+
+The test before opening a fence: would this render correctly with the monospace stripped? If yes,
+it was never code, and the whitespace alignment holding it together is doing a table's job by
+hand.
+
 #### Nested bullets carry the reasoning
 
 Bullets are the primary medium, not the fallback: 1,576 reasoning bullets against 738 prose
@@ -197,9 +223,14 @@ Check these, because they are cheap to check and expensive to get wrong:
    mask an empty first section.
 4. No housekeeping: grep the note for `reproduce`, `regenerate`, `script`, `.py`. A hit outside a
    code block is almost always commentary about the document rather than about the subject.
-5. No em dash anywhere.
-6. The note does not conclude.
-7. Image lines end with two trailing spaces.
+5. Every label slot holds a noun phrase: table column headers, and the bold lead before a colon
+   in a `- **Term**: gloss` bullet. Rewrite questions and verb phrases: `무엇에 칠하나` → `용도`,
+   `대신 쓸 것` → `대안`, `- **노란 claim만 노트로 올라간다**:` → `- **노란 claim이 곧 노트**:`.
+6. No em dash anywhere.
+7. The note does not conclude.
+8. Image lines end with two trailing spaces.
+9. Every code fence holds a tree, a text diagram, or real code. Any fence whose lines are
+   key-value pairs, or columns held apart by space padding, should have been a table.
 
 Then tell the user where the note and the `.images/` folder are.
 

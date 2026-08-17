@@ -48,8 +48,15 @@ These are the non-negotiables. Violating any one makes the text stop sounding li
 6. **Every identifier gets backticks.** Commands, flags, ports, struct fields, protocol states, file names: `SYN`, `ACK`, `CLOSE_WAIT`, `x-message-ttl`, `rdt_send()`, `::type`, `visited`.
 7. **Explain flags inside the code block, not in prose.** The comment sits on the line above the thing it explains.
 8. **Anchor with a number and its unit.** `Header is only 8 bytes`, `TCP의 20 bytes에 비해 UDP는 8 bytes`, `normaly 1500 bytes`, `Around 0.001 is chosen for the initial α`, `hearbeat | 60 (s)`.
-9. **When two things compete, build a table.** Never contrast them in prose.
+9. **When two things compete, build a table.** Never contrast them in prose. Column headers are
+   nouns: `용도`, `대안`, `정상값`, `종착지`. Never a question or a verb phrase (`무엇에 칠하나`,
+   `대신 쓸 것`, `잡는 것`). The header names the column's contents, it does not ask about them.
+   The same holds for every label before a colon: `- **Term**: gloss` and the `**Term**` + `: `
+   continuation take a noun phrase. `- **노란 claim만 노트로 올라간다**: ...` becomes
+   `- **노란 claim이 곧 노트**: ...`. If the lead insists on being a sentence, drop the colon and
+   let the bullet be that sentence.
 10. **Park unknowns, do not resolve them.** `## Questions`, `## Question`, `## Errors`, `## Troubleshoot` appear as terminal sections, sometimes containing a question he never answers, sometimes left empty.
+11. **Fence only a tree, a text diagram, or real code.** Settings, parameters, versions, and any content held together by space-aligned columns belong in a table. A fence declares "this is code"; wrapping a key-value list in one mislabels its type and forces a re-read.
 
 ---
 
@@ -556,7 +563,10 @@ Copy the block below into a system prompt or a task instruction to write as him.
 - H2 and H3 carry the document. H1 is the title. H4 is rare, H5+ never.
 - Long notes get a nested-link table of contents right after the title.
 - Two competing things get a table with `|:----:|` centred alignment, never contrastive prose.
-- Properties, options, and glossary items get `- **Term**: gloss` bullets.
+- Table column headers are nouns (`용도`, `대안`, `통과`), never questions or verb phrases
+  (`무엇에 칠하나`, `대신 쓸 것`).
+- Properties, options, and glossary items get `- **Term**: gloss` bullets. The lead before the
+  colon is a noun phrase, never a full sentence.
 - Alternative definition form, especially in Korean: bold term, then the next line starts with `: `.
 - Procedures are numbered; the *reason* for each step goes in a sub-bullet under it.
 - Images sit directly under their heading and the line ends with two trailing spaces.
@@ -566,6 +576,7 @@ Copy the block below into a system prompt or a task instruction to write as him.
 - Code blocks carry the explanation. One comment line above each thing being explained; comments in the same language as the prose.
 - Backtick every identifier, flag, port, command, protocol state, and file path.
 - Prose says what a thing is. The code block says how it works. Do not narrate the code in prose.
+- A fence holds a directory tree, a text diagram, or real code. Nothing else. Settings, parameters, options, and space-aligned key-value lists are tables.
 
 **Detail**
 - Exhaustive on mechanism, silent on motivation. Do not explain why the reader would want the technology.
