@@ -32,7 +32,6 @@ identifies the upstream release or commit currently vendored here.
 
 | Skill | Description | Recorded version | Claude | Codex |
 |-------|-------------|------------------|--------|-------|
-| [`humanizer`](https://github.com/blader/humanizer) | Remove signs of AI-generated writing from text. | [`v2.8.1`](https://github.com/blader/humanizer/tree/199e69420669768b2768d368d1286474e38c00f5) | [✅](claude/skills/humanizer) | [✅](codex/skills/humanizer) |
 | [`karpathy-guidelines`](https://github.com/forrestchang/andrej-karpathy-skills) | Keep coding work simple, surgical, explicit, and verifiable. | [`64723a4`](https://github.com/forrestchang/andrej-karpathy-skills/commit/64723a49ea6117894304eb491f0d32a60570bf45) | [✅](claude/skills/karpathy-guidelines) | [✅](codex/skills/karpathy-guidelines) |
 
 ## Installing
@@ -67,9 +66,59 @@ $cotidie:extract-slide-design
 $cotidie:scaffold-react
 $cotidie:textbook-notes
 $cotidie:write-like-me
-$cotidie:humanizer
 ```
 
 For local authoring without the plugin namespace, you can still symlink a
 source skill folder into `~/.codex/skills/`, but that exposes it as
 `$<skill-name>` instead of `$cotidie:<skill>`.
+
+## Third Party Installation
+
+Skills and plugins this repo deliberately does not bundle, because someone else
+maintains them. Run these on a new machine to finish the setup. The bundled
+`write-like-me` skill calls `humanizer` in its final editing pass, so install it
+if you use that skill.
+
+### humanizer
+
+Strips signs of AI writing. Upstream: [blader/humanizer](https://github.com/blader/humanizer) (MIT).
+
+```bash
+mkdir -p ~/.claude/skills
+git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
+```
+
+Update later with `git -C ~/.claude/skills/humanizer pull`. For Codex, clone into
+`~/.codex/skills/humanizer` instead.
+
+To apply it to every answer instead of on request, add this block to
+`~/.claude/CLAUDE.md`:
+
+```markdown
+# prose: humanizer (always on)
+Apply the humanizer rules to every piece of prose you write: chat replies, commit
+messages, READMEs, docs, PR bodies. Full skill at `~/.claude/skills/humanizer/SKILL.md`;
+load it with the Skill tool for long-form drafting or editing passes.
+```
+
+### i-have-adhd
+
+Shapes every answer so it can be acted on: next action first, numbered steps,
+one concrete next step at the end. Upstream:
+[ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd).
+
+```bash
+claude plugin marketplace add ayghri/i-have-adhd
+claude plugin install i-have-adhd@i-have-adhd
+```
+
+That installs it as an on-demand `/i-have-adhd` command. To make it the default
+for every session:
+
+```bash
+touch ~/.claude/.i-have-adhd-always
+```
+
+A `SessionStart` hook loads the full ruleset whenever the flag file exists. Say
+`stop adhd mode` to disable it for the current session, or `rm
+~/.claude/.i-have-adhd-always` to go back to on-demand.
