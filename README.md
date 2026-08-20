@@ -17,6 +17,7 @@ hosts.
 | `cli-user-test` | Validate a built, unit-tested program as a real user would from the terminal. | [✅](claude/skills/cli-user-test) | [✅](codex/skills/cli-user-test) |
 | `codex-image` | Generate or edit raster images through the Codex CLI image tool. | [✅](claude/skills/codex-image) | ❌ |
 | `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format. | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) |
+| `explain-concept` | Research a concept from primary sources and organize it into a self-contained study document. | [✅](claude/skills/explain-concept) | [✅](codex/skills/explain-concept) |
 | `extract-slide-design` | Reverse-engineer slide images, deck screenshots, or report PDFs into a reusable `DESIGN.md`. | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) |
 | `iteration-roadmap` | Break a project or feature into small, vertical, user-testable iterations. | [✅](claude/skills/iteration-roadmap) | [✅](codex/skills/iteration-roadmap) |
 | `modify-class-diagram` | Update an existing `.drawio` UML class diagram to match a target codebase. | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) |
@@ -63,6 +64,7 @@ $cotidie:pr-writer
 $cotidie:create-class-diagram
 $cotidie:modify-class-diagram
 $cotidie:extract-slide-design
+$cotidie:explain-concept
 $cotidie:scaffold-react
 $cotidie:textbook-notes
 $cotidie:write-like-me

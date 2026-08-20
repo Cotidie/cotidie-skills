@@ -1,0 +1,7 @@
+interface:
+  display_name: "Explain Concept"
+  short_description: "Primary-source research into a study document"
+  default_prompt: "Use $explain-concept to research this topic from primary sources and organize it into a study document."
+
+policy:
+  allow_implicit_invocation: true
