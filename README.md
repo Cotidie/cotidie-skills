@@ -26,14 +26,18 @@ hosts.
 | `textbook-notes` | Distill math-heavy textbook chapter PDFs into Notion-style study notes with offline HTML output. | [✅](claude/skills/textbook-notes) | [✅](codex/skills/textbook-notes) |
 | `write-like-me` | Write figure-first knowledge notes in Cotidie's documented voice. | [✅](claude/skills/write-like-me) | [✅](codex/skills/write-like-me) |
 
-### Vendored Skills
+### Third Party Skills
 
-These skills are snapshots of upstream open source projects. The recorded version
-identifies the upstream release or commit currently vendored here.
+These come from upstream open source projects. `karpathy-guidelines` ships here
+as a snapshot pinned to the recorded commit. The rest stay with their
+maintainers and install separately, so the Claude and Codex columns link to
+[Third Party Installation](#third-party-installation) instead of a bundled copy.
 
-| Skill | Description | Recorded version | Claude | Codex |
-|-------|-------------|------------------|--------|-------|
-| [`karpathy-guidelines`](https://github.com/forrestchang/andrej-karpathy-skills) | Keep coding work simple, surgical, explicit, and verifiable. | [`64723a4`](https://github.com/forrestchang/andrej-karpathy-skills/commit/64723a49ea6117894304eb491f0d32a60570bf45) | [✅](claude/skills/karpathy-guidelines) | [✅](codex/skills/karpathy-guidelines) |
+| Skill | Description | Upstream | Claude | Codex |
+|-------|-------------|----------|--------|-------|
+| `humanizer` | Remove signs of AI-generated writing from text. | [blader/humanizer](https://github.com/blader/humanizer) | [install](#humanizer) | [install](#humanizer) |
+| `i-have-adhd` | Shape every answer for an ADHD reader: next action first, numbered steps, visible progress. | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) | [install](#i-have-adhd) | [install](#i-have-adhd) |
+| `karpathy-guidelines` | Keep coding work simple, surgical, explicit, and verifiable. | [`64723a4`](https://github.com/forrestchang/andrej-karpathy-skills/commit/64723a49ea6117894304eb491f0d32a60570bf45) vendored | [✅](claude/skills/karpathy-guidelines) | [✅](codex/skills/karpathy-guidelines) |
 
 ## Installing
 
@@ -124,3 +128,12 @@ touch ~/.claude/.i-have-adhd-always
 A `SessionStart` hook loads the full ruleset whenever the flag file exists. Say
 `stop adhd mode` to disable it for the current session, or `rm
 ~/.claude/.i-have-adhd-always` to go back to on-demand.
+
+For Codex:
+
+```bash
+codex plugin marketplace add ayghri/i-have-adhd --ref main
+codex plugin add i-have-adhd@i-have-adhd
+```
+
+Codex has no always-on hook, so invoke it explicitly with `$i-have-adhd`.
