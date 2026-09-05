@@ -15,6 +15,7 @@ whole environment rebuilds itself.
 | `pr-writer`            | Draft a PR or MR title and body from a branch diff, commits, or summary.      | [✅](claude/skills/pr-writer)            | [✅](codex/skills/pr-writer)            |
 | `textbook-notes`       | Distill math-heavy textbook chapters into study notes with offline HTML.      | [✅](claude/skills/textbook-notes)       | [✅](codex/skills/textbook-notes)       |
 | `explain-concept`      | Research a concept from primary sources into a self-contained study document. | [✅](claude/skills/explain-concept)      | [✅](codex/skills/explain-concept)      |
+| `summary-paper`        | Read a paper with PACES into a Markdown or HTML summary with figures.        | [✅](claude/skills/summary-paper)        | [✅](codex/skills/summary-paper)        |
 | `scaffold-react`       | Create or refactor React apps to the bundled scaffold conventions.            | [✅](claude/skills/scaffold-react)       | [✅](codex/skills/scaffold-react)       |
 | `cli-user-test`        | Validate a built, unit-tested program as a real user would from the terminal. | [✅](claude/skills/cli-user-test)        | [✅](codex/skills/cli-user-test)        |
 | `codex-image`          | Generate or edit raster images through the Codex CLI image tool.              | [✅](claude/skills/codex-image)          | ❌                                      |

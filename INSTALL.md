@@ -36,6 +36,18 @@ Verify: `codex plugin list` shows `cotidie@cotidie-skills` as `installed, enable
 - Codex: `codex plugin marketplace upgrade cotidie-skills`, then
   `codex plugin remove cotidie && codex plugin add cotidie@cotidie-skills`
 
+### Tools some skills call
+
+- `summary-paper`: poppler (`pdftotext`) and three Python packages.
+
+  ```bash
+  python3 -m pip install pymupdf matplotlib markdown
+  ```
+
+- `textbook-notes`: Node. First run only, inside the skill's `scripts/`: `npm install`.
+
+Verify: `pdftotext -v` prints a version; `python3 -c "import fitz, matplotlib, markdown"` exits 0.
+
 ## 2. Single-host skills
 
 Most skills ship for both hosts. The README table marks the exceptions with
