@@ -120,7 +120,7 @@ Point the path at `~/.codex/skills/humanizer/SKILL.md` in the Codex copy.
 
 Verify: the block appears once in the file.
 
-## 5. Final check
+## 4. Final check
 
 ```bash
 claude plugin list
