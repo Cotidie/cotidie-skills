@@ -48,30 +48,7 @@ Verify: `codex plugin list` shows `cotidie@cotidie-skills` as `installed, enable
 
 Verify: `pdftotext -v` prints a version; `python3 -c "import fitz, matplotlib, markdown"` exits 0.
 
-## 2. Single-host skills
-
-Most skills ship for both hosts. The README table marks the exceptions with
-`❌`. Today that is `codex-image`, which ships for Claude Code only.
-
-To use a single-host skill on the other host, copy the skill directory into
-that host's user skills directory:
-
-- into Claude Code: `~/.claude/skills/<name>`
-- into Codex: `~/.codex/skills/<name>`
-
-```bash
-git clone https://github.com/Cotidie/cotidie-skills.git /tmp/cotidie-skills
-mkdir -p ~/.codex/skills
-cp -r /tmp/cotidie-skills/claude/skills/codex-image ~/.codex/skills/codex-image
-```
-
-An imported skill sits outside the plugin, so it invokes as `$codex-image`
-rather than `$cotidie:codex-image`. It also does not update with the plugin;
-re-copy it after a plugin update.
-
-Verify: the skill directory exists and holds a `SKILL.md`.
-
-## 3. Third-party skills
+## 2. Third-party skills
 
 Maintained elsewhere, deliberately not vendored here.
 
@@ -107,7 +84,7 @@ codex plugin add i-have-adhd@i-have-adhd
 
 Verify: `claude plugin list` and `codex plugin list` both show it.
 
-## 4. User-scope defaults
+## 3. User-scope defaults
 
 Sections 1 to 3 leave every skill on demand. This section makes two of them
 apply to every answer.
