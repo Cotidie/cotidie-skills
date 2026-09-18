@@ -1,6 +1,6 @@
 ---
 name: textbook-notes
-description: Distill dense, math-heavy textbook chapters (PDF) into Notion-style study notes with callouts, KaTeX math, gap-filled derivations, and Q&A blocks. Markdown source, self-contained offline HTML output, printable to PDF. Use when the user asks to summarize/distill a textbook chapter or subchapter (e.g. "ch4", "4.2") into a study note, asks follow-up questions to revise a note, appends chapters, or rebuilds note HTML. Korean triggers: 전공서적 정리, 교과서 정리, 챕터 요약, 정리 노트, N장 정리, 서브챕터 정리, 이해 안 되는 부분 질문.
+description: 'Use when the user asks to summarize/distill a textbook chapter or subchapter (e.g. "ch4", "4.2") into a study note, asks follow-up questions to revise a note, appends chapters, or rebuilds note HTML. Distills dense, math-heavy textbook chapters (PDF) into Notion-style study notes with callouts, KaTeX math, gap-filled derivations, and Q&A blocks. Markdown source, self-contained offline HTML output, printable to PDF. Korean triggers - 전공서적 정리, 교과서 정리, 챕터 요약, 정리 노트, N장 정리, 서브챕터 정리, 이해 안 되는 부분 질문.'
 trigger: /textbook-notes
 ---
 
@@ -30,20 +30,20 @@ terminology, math kept exact.
 
 ### generate <book.pdf> <unit> [language]
 
-`<unit>` is a chapter or subchapter: `ch4`, `4.2`, `4.2.1`.
+`<unit>` is a chapter or subchapter: `ch4`, `4.2`, `4.2.1`. Appending a
+new chapter to an existing book is this same flow.
 `[language]` defaults to English; write the note body in Korean if asked
 (keep technical terms in English either way). A non-English note is a
 parallel file `chNN-<slug>.<lang>.md` (e.g. `.ko.md`) next to the English
 one, never a replacement; link both versions in index.md and cross-link
 them in each note's header table. Callout titles follow the note language
-(`::: goal 목표`). Heading titles stay the book's exact titles in the
-book's language, never translated or paraphrased (see note-style.md).
+(`::: goal 목표`); heading rules live in note-style.md.
 
 1. Locate the unit's page range (see "Locating a unit" below).
 2. Read those PDF pages with the Read tool (max 20 pages per call).
 3. Write or extend `chNN-<slug>.md` following `assets/template.md` and
    `references/note-style.md`. When generating a subchapter only, keep all
-   other sections as stub headings containing exactly: `_Not distilled yet._`
+   other sections as stub headings with the stub line from template.md.
 4. Create figures (see note-style.md figure pipeline).
 5. Update index.md status table.
 6. Build (see build mode) and tell the user the output path.
@@ -57,21 +57,18 @@ The user asks about a part they do not understand, or requests a change.
    add a `::: qa` block with the question and answer, or fix the wording.
 3. Rebuild that chapter's HTML.
 
-### append
-
-Alias of generate for a new chapter of an existing book. Also add the
-chapter row to index.md.
-
 ### build
 
 ```
 node <skill-dir>/scripts/render.mjs <chapter.md>
 ```
 
+`<skill-dir>` is this skill's directory (the folder containing this
+SKILL.md); under a plugin install it is `${CLAUDE_PLUGIN_ROOT}/skills/textbook-notes`.
+
 Writes `<dir>/build/<chapter>.html`. Rebuild every .md in the book
 directory when the stylesheet or many files changed.
 
-`<skill-dir>` is this skill's directory (the folder containing this SKILL.md).
 First run only: `cd <skill-dir>/scripts && npm install`.
 If npm install fails, tell the user math will need a network connection,
 and emit HTML that loads KaTeX from a CDN (auto-render extension) instead,
@@ -110,3 +107,15 @@ Body markdown, math allowed.
 ```
 
 Optional custom title after the type name; omit it for the default label.
+
+Symbol definitions: a `::: symbols` block (title defaults to "Notation")
+holds one `- $latex$ : one-line definition` entry per symbol and renders
+as an anchored notation box. Every inline math occurrence of a defined
+symbol then shows the definition on hover and jumps to the entry on
+click. Occurrences match after index normalization, so `p_2` and
+`p_u(i-1)` resolve to the `p_i` and `p_u(i)` entries, and comma lists
+like `$p_u(i), r_u(i)$` match each part. Defined symbols inside display
+equations (`$$...$$`) get the same hover and click-to-jump, wrapped at
+render time via KaTeX `\htmlData`. Cross-chapter resolution works
+via `build/sym-map.json`, same per-language, rebuild-together caveat as
+equations. Authoring rules live in `references/note-style.md`.

@@ -7,9 +7,10 @@ the first read. Plain sentences, standard terminology, exact math. Simple
 structure is not baby talk: never dumb down the terms, only the syntax.
 
 - Body in plain English by default; Korean only when the user asks.
-- Use the field's standard terms (pseudo-machine, starvation, blocking).
-  Gloss each once in plain words at first use, then use the term alone.
-  Do not invent cute synonyms like "fake machine".
+- Use the field's standard terms. Gloss each once in plain words at
+  first use, then use the term alone. Never invent synonyms for a term
+  of art; call defined quantities by their defined names (probability,
+  not chance).
 - Prefer common words for everything that is not a term of art: use, not
   utilize; enough, not sufficient; about, not approximately.
 - One idea per sentence. No nested clauses: split them.
@@ -19,23 +20,37 @@ structure is not baby talk: never dumb down the terms, only the syntax.
 - Never use an em-dash.
 - Every symbol gets a plain-words name at first use ("r_u(i), the
   probability the upstream pseudo-machine is repaired in one step").
-- Say "probability", not "chance", for defined quantities.
+  This includes appearances BEFORE the body definition (goal callouts,
+  hinges, section intros): never a bare symbol there; prefix the defining
+  word ("guidance 변수 $y$", not "$y$").
 - Teach by example. After an abstract statement, give one tiny concrete
   case with numbers when possible.
 - Read-aloud test: if you would stumble or re-read a sentence, break it up.
 - Do not paraphrase the book's long paragraphs. Say the point in one or
   two short sentences and let the math carry the rest.
-- Prefer bullet points over prose. Any sentence listing two or more items,
-  causes, cases, or observations becomes a list. Any paragraph that is
-  really an enumeration ("first... also... finally") becomes a list.
+- Enumerations become lists: three or more parallel items, cases, or
+  observations, and any paragraph that is really an enumeration
+  ("first... also... finally"). A two-item sentence stays prose; never
+  fragment connected reasoning into bullets.
 - Bullets are fragments, not essays: one line each when possible, no
   trailing sub-clauses. Use numbered lists only when order matters.
+- Notation and multi-slot definitions are written as a slot map, never as
+  a prose sentence. `**Kendall $A/B/m/b$** = arrival dist / process dist /
+  machines / max jobs`, then one sub-bullet per letter (`$M$ = exponential`).
+  Same for named systems: `**$M/M/1/b$** = exponential arrivals /
+  exponential process / 1 machine / at most $b$ jobs`. Never "A is the
+  arrival distribution, B is the process distribution, and the rest are
+  m and b".
+- Term-by-term readings of an equation are one bullet per term in
+  `term = role` form (`$s/k$ = per-part share of the setup`), not a
+  sentence that walks the terms ("the first term is..., the second...").
+- Cross-reference by equation number, `(8.14)`, not by location ("the
+  four relations of 8.6.2"): the renderer turns numbers into hover
+  previews, so the reader never scrolls back.
 
 ## Storytelling
 
 The note reads as one continuous story, not a stack of definitions.
-Settled with the user (2026-08-04): two devices, applied at intros and
-hinges only.
 
 - Unresolved-problem relay: every H2 opens by naming the problem the
   previous section (or chapter) left unsolved, and the chapter body ends
@@ -49,6 +64,13 @@ hinges only.
 - Hinge paragraphs: 1-3 plain sentences at section and concept
   boundaries connecting what just happened to what comes next. Hinges
   are prose, never bullets.
+- Theorems are characters, not exhibits. Before (or right after) the
+  statement, say in 1-3 sentences what role it plays in the chapter's
+  story: which standing problem it settles, and where it gets used next
+  ("this is the device that makes the claim checkable; the proof of
+  Theorem 9 is its first application"). Never let a theorem statement
+  stand bare. A theorem whose role you cannot state does not belong in
+  the note.
 - One running example per book, chosen at book start (e.g. "generate a
   dog photo") and touched at least once per chapter, so every abstract
   object lands on the same concrete task.
@@ -62,16 +84,23 @@ hinges only.
   (plain bold, no decoration).
 - Heading titles are the book's titles, verbatim: same numbering, same
   words, same capitalization. Never paraphrase, shorten, retitle, or
-  translate them. This holds in translated notes too: body in the target
-  language, headings in the book's language. H1 format:
-  `Ch.N - <exact book chapter title>`.
-- H4 mini-headers that exist in the book (run-in or paragraph-lead
-  headers) also keep the book's exact wording. Only headers you invent
-  for structure the book lacks get your own title, still written in the
-  book's language so the heading hierarchy stays uniform.
+  translate them, even in translated notes (body in the target language,
+  headings in the book's language). This covers H4 run-in headers the
+  book has. Only headers you invent get your own title, still in the
+  book's language. H1 format: `Ch.N - <exact book chapter title>`.
 - Open each H2 section with a `::: goal` callout when the section solves a
   stated problem.
-- Sections not yet distilled contain exactly: `_Not distilled yet._`
+- Presentation layout (the reader presents the note on a shared screen):
+  every H3 body is a one- or two-sentence lead followed by nested bullets.
+  Each top-level bullet starts with a bold keyword the presenter can read
+  aloud (`**정의**`, `**균형 조건**`, `**읽기**`, `**관찰 1**`,
+  `**교훈**`), sub-bullets carry the detail. Prose survives only in the
+  chapter `goal`, section leads, and hinges. Callout bodies use the same
+  bullets. Equations, figures and tables sit between bullets at column
+  level; a bullet may end with a colon to introduce the display equation
+  under it. Every bullet still obeys the fragment rule above.
+- Sections not yet distilled contain exactly the stub line shown in
+  `assets/template.md`.
 
 ## Math
 
@@ -81,22 +110,71 @@ hinges only.
   intuition that existed first; the body states that intuition, and
   multi-step algebra goes to `proof` boxes. Body answers "why should
   this be true" and "what does it do"; the box answers "how to show it".
+- A derivation is a route, not a wall of algebra. Open every `gap` and
+  `proof` box with a one-line strategy: where the derivation is headed
+  and by what moves ("bound the tail, then let N grow"). Label each
+  nontrivial step with what it accomplishes. The route and why it works
+  are what survive after the algebra is forgotten.
 - Right after each equation, add one short sentence saying what it means
   in plain words. Skip it only when the surrounding prose already does.
-- Read load-bearing equations term by term: name the ROLE of each term
-  or factor, i.e. what it pushes toward, penalizes, rescales, weights,
-  or balances ("the drift pulls to 0, the noise pushes out", "the
-  regularization term penalizes large parameters"). A term whose role
-  you cannot name means the equation is not yet understood: dig, or
-  mark it as an open question for revise mode.
+- Read load-bearing equations term by term as a MECHANISM, not as
+  labels. A role is a quantity the reader can picture, in units they
+  can count: "$U = u/(1-u)$ = the number of jobs ahead of me when I
+  arrive", "$T = t_e$ = time to process one of them", "$U \times T$ =
+  time to clear the jobs ahead of me", "$V$ = how many times more pile
+  up than in the exponential baseline". Naming a factor "the
+  utilization term" or "the variability term" is a label and explains
+  nothing; it is the failure mode this rule exists to prevent. Then say
+  WHY the terms combine the way they do: multiplied because each is an
+  independent proportional scaling ("a 2x slower machine doubles every
+  wait"), added because they are sequential stretches of time. The
+  mechanism reading is the first bullet under the equation, before
+  examples, names, history, or ranges of validity. The section's central
+  equation gets the section; everything else in that section is shorter
+  than the reading. A term whose mechanism you cannot state means the
+  equation is not yet understood: dig, or mark it as an open question
+  for revise mode.
 - When the book jumps between two equations, restore the intermediate
   algebra inside a `::: gap` callout.
 - Prefer aligned derivations (`\begin{aligned}`) over prose descriptions
   of algebra. Let the math talk; keep the prose around it short.
+- No stacked fractions (`\frac`) in inline math: they cramp the line and
+  are hard to read. Give the equation its own display line, or write the
+  slash form inline ($1/e_d = 1 + p_d/r_d$).
 - Break wide equations into two or more `\begin{aligned}` lines instead of
   letting them scroll horizontally. Rough limit: if a display equation
   would not fit in about 80 characters of LaTeX terms, split it at an
   operator (=, +) with `\\` and align.
+- Never start the paragraph after a display equation with a parenthesized
+  number: `(6.6)에서 ...`. The renderer swallows it as that equation's
+  number, which silently shifts every following equation anchor. Write
+  `식 (6.6)에서 ...` (or "eq. (6.6)") instead.
+- Math does not render inside `<figure>` blocks or in callout TITLES (the
+  text after `::: gap`): both are emitted as raw text. Captions and callout
+  titles use Unicode symbols (φ₀, σ, √v, Ωᵀ), never `$...$`. Math inside a
+  callout BODY renders normally.
+
+## Symbol glossary
+
+Every chapter whose notation recurs gets `::: symbols` blocks. Each entry
+becomes the hover definition and the click target for every inline
+occurrence of that symbol, so:
+
+- Place each block at the symbols' true first definition: usually right
+  after the passage that introduces them. A section that introduces new
+  symbols gets its own block there; never one big glossary at the top for
+  symbols the reader has not met yet.
+- Entry format: `- $latex$ : role in plain words`. One line, math allowed
+  in the definition, no trailing period.
+- Keys use the book's notation verbatim with its canonical index letter
+  (`p_u(i)`, not `p_u(j)`). Occurrences with shifted or numeric indices
+  (`p_u(i-1)`, `p_2`) match automatically; role subscripts (`u`, `d`,
+  `s`, `b`) are literal, so `e_u` and `e_d` are separate entries.
+- The box supplements, never replaces, the body rule that every symbol
+  gets a plain-words name at first use. Do not turn body definitions into
+  box-only definitions.
+- Korean notes title the block `::: symbols 기호`; the default title is
+  "Notation".
 
 ## Callouts
 
@@ -113,6 +191,13 @@ no "not in the book", "책에 없는 내용", "the book leaves this open",
 signal; the phrases are bookkeeping noise. Naming a concrete outside
 source ("this is Tweedie's formula") is content and stays.
 
+Compress boxes hard. A box states its point and stops; cut background
+theory, named frameworks, and practical-treatment digressions the point
+survives without. Deletion test: remove a sentence, and if the box still
+answers its title, the sentence was padding. Depth arrives on request
+through revise mode, never preemptively. (A `gap` or `proof` box carrying a
+derivation is long because the derivation is; its prose still obeys this.)
+
 Two things never get a box:
 
 - Definitions and theorem STATEMENTS. They belong in the body prose; they
@@ -127,7 +212,8 @@ Box types, by color:
   - `gap`: anything the book skips over that the reader needs: restored
     derivations and proofs, bridging algebra between two equations,
     logical jumps and missed connections between statements, and
-    verification checks ("why 4(k-1) equations"). Also use `gap` for a
+    sanity checks the book asserts without showing (counting arguments,
+    dimension checks). Also use `gap` for a
     cross-chapter recap: when
     the body cites an equation from another chapter, restate it in a
     lavender box titled "Recap from Ch.N" so the page stands alone
@@ -176,8 +262,8 @@ Budget and spacing:
 - `insight` + `qa` combined: at most 3 per H2 section. They are content
   you add; `gap` count follows what the book skips.
 - A substantial H2 with no boxes is a smell: look again for a skipped
-  derivation, an outside link, or a question worth asking. The reader
-  prefers callout-rich notes over bare ones.
+  derivation, an outside link, or a question worth asking. Fill the gap
+  only when the box criteria above hold; never box filler.
 - Never three boxes in a row. Two in a row only when their colors
   differ. Prefer prose between boxes.
 
@@ -190,36 +276,28 @@ would otherwise have to simulate in their head. After drafting a
 section, sweep the text for these triggers; each hit is a figure
 candidate:
 
-The triggers are domain-general; examples span math and CS on purpose.
-
 - Shape claim: any shape adjective about a function, curve, or data
-  ("U-shaped", "heavy-tailed", "step", "plateaus", "straight line on
-  log-log") → plot the object.
+  ("U-shaped", "plateaus", "straight line on log-log") → plot the
+  object.
 - Evolution over a variable: "converges to", "approaches as n grows",
-  loss over training steps, quality over iterations → plot the family
-  at several stages with the limit or target overlaid.
-- Comparison or trade-off: "thicker/faster/larger than", "one shrinks
-  as the other grows" (α vs β, bias-variance, precision-recall,
-  throughput-latency) → plot both on the same axes.
-- Geometry claim: regions and boundaries (support, integration region,
-  decision boundary), projections, embedding-space intuition → draw
-  the space with the operation's direction marked.
+  quality over iterations → plot the family at several stages with the
+  limit or target overlaid.
+- Comparison or trade-off: "one shrinks as the other grows"
+  (bias-variance, throughput-latency) → plot both on the same axes.
+- Geometry claim: regions, boundaries, projections, embedding-space
+  intuition → draw the space with the operation's direction marked.
 - Structure and dataflow: components with something flowing between
-  them, described in prose ("the input passes through ... then ...").
-  Architectures (Transformer block), pipelines, protocol stacks,
-  memory layouts, pointer structures → block diagram; label the flow
-  (tensor shapes, packets, gradients).
-- Execution trace: prose narrating an algorithm's state changing step
-  by step (DP table filling, sort partitioning, attention pattern over
-  a sentence) → snapshot sequence of the state at 2-3 steps.
-- Relation web: three or more concepts tied by transformations,
-  limits, or implications, spread across sections → one orientation
-  diagram per chapter at most.
-- Empirical artifact: claims about what a trained model or a real
-  system actually produces (attention maps, generated samples,
-  saliency maps, profiler output). Never redraw these; crop the
-  original from the book or cited paper, or download it (see source
-  table below).
+  them (architectures, pipelines, memory layouts) → block diagram;
+  label what flows.
+- Execution trace: prose narrating state changing step by step (DP
+  table filling, sort partitioning) → snapshots of the state at 2-3
+  steps.
+- Relation web: three or more concepts tied by transformations or
+  implications across sections → one orientation diagram per chapter
+  at most.
+- Empirical artifact: what a trained model or real system actually
+  produces (attention maps, generated samples, profiler output) →
+  never redraw; crop or download (see source table below).
 - Physical object or apparatus: photo or schematic.
 
 Kill criteria, mirror of the callout rules: no figure for what a
@@ -250,34 +328,44 @@ comparison table instead of running text.
 Pick the source per figure by figure TYPE, not by a fixed priority
 order. Rule: whoever produces the most faithful image wins.
 
-- Figure exists in the book, or in a paper the book cites → crop it
-  from that PDF:
-  `pdftoppm -png -r 200 -f <pdfpage> -l <pdfpage> book.pdf /tmp/page`
-  then crop with Python PIL into `figures/chNN/fig-N-M.png`.
-  Empirical artifacts (attention maps, generated samples, benchmark
-  plots) are ALWAYS crops or downloads, never redraws: their value is
-  being the real output.
-- Curve or plot computable from a formula, toy data, or a small
-  runnable example (pdf shapes, power functions, convergence plots,
-  complexity curves, a toy attention heatmap) → generate with
-  matplotlib, styled to the note palette (transparent background, ink
-  and brand-accent lines, no top/right spines), saved as SVG.
-- Nodes-and-arrows structure (block diagrams, architectures,
-  pipelines, memory layouts, family trees, implication maps) and
-  execution-trace snapshots → hand-author SVG (ink strokes, cream
-  fills, one accent). Mermaid only when flowchart semantics fit.
-- Photographs, real-world objects, 3D renderings, software-output
-  examples, and canonical images a redraw would degrade (a Galton
-  board photo, a famous historical chart) → download from the web,
-  directly and without hesitation; it is a first-class source, not a
-  fallback. Save into `figures/chNN/`, note the source domain in the
-  caption. Notes are for personal study; licensing is not a gate.
-- Illustrative art with no factual content → codex-image skill.
+| Figure type | Source | Notes |
+|---|---|---|
+| Exists in the book or a paper the book cites; any empirical artifact (attention maps, generated samples, benchmark plots) | Crop from that PDF into `figures/chNN/fig-N-M.png` (command below) | Empirical artifacts are ALWAYS crops or downloads, never redraws: their value is being the real output |
+| Curve or plot computable from a formula, toy data, or a small runnable example (pdf shapes, convergence plots, a toy attention heatmap) | matplotlib, saved as SVG | Note palette: transparent background, ink and brand-accent lines, no top/right spines |
+| Nodes-and-arrows structure (block diagrams, architectures, pipelines, memory layouts, implication maps); execution-trace snapshots | Hand-authored SVG | Ink strokes, cream fills, one accent. Mermaid only when flowchart semantics fit |
+| Photographs, real-world objects, 3D renderings, canonical images a redraw would degrade (a Galton board photo, a famous historical chart) | Web download into `figures/chNN/` | First-class source, not a fallback. Note the source domain in the caption. Notes are personal study; licensing is not a gate |
+| Concept schematic that carries notation (a station anatomy, an equation anatomy, a propagation chain) | Comfy Cloud MCP `partner_generate`, model `vertexai/nano-banana-pro` | Annotate like a paper figure: every symbol the section defines appears ON the figure with its role (`rate rₐ, CV cₐ`, `capacity rₑ = m/tₑ`, a legend box for notation). Spell each label verbatim in the prompt with true subscripts; the model renders them. Recipe below |
+| Illustrative art with no factual content | Same Comfy Cloud route | Never a CLI image tool |
+
+Crop command:
+`pdftoppm -png -r 200 -f <pdfpage> -l <pdfpage> book.pdf /tmp/page`,
+then crop with Python PIL.
+
+Comfy Cloud recipe (needs the user's cloud subscription; a "cloud
+subscription required" or "Payment Required" error means it is missing,
+stop and tell the user): `partner_generate` with `type: image`,
+`model: vertexai/nano-banana-pro`, `aspect_ratio: 16:9`, `confirm: true`
+once the user has asked for the figure, `wait_for_output: true`; then
+`wait_for_job` until completed, `get_output`, curl the returned
+`/api/s/...?raw=1` link, crop the empty margins with PIL, save under
+`figures/chNN/`. Style line for the prompt: "flat vector, cream background
+(#fffaf0), thin dark ink lines, one muted orange accent, clean sans-serif,
+true subscripts, no gradients, no shadows, no logos, no watermark". To fix
+one detail (a literal underscore, an overlapping legend, a missing label)
+pass the job back as `medias: [{role: "image", prompt_id, output_index:
+0}]` with an edit prompt that names the one change and says to keep
+everything else identical. Check the result for factual layout errors
+(machines chained in series when they should be parallel) before using it.
 
 Books with no figures at all (common for lecture notes): generate your
 own where a picture carries real explanatory weight, still capped by
 restraint (a few per chapter, each tied to a specific claim in the
-body). Verify every produced or downloaded image by Reading it.
+body).
+
+Verify every produced or downloaded image by Reading it.
+
+### Captions and layout
+
 - Every figure gets a caption: `<figure>` markdown image + italic caption
   line, numbered like the book (Figure 4.1) so revise requests can refer
   to them.
@@ -293,6 +381,7 @@ body). Verify every produced or downloaded image by Reading it.
 ## Faithfulness
 
 - The note is a study companion, not a paraphrase dump: compress
-  repetitive prose, keep all definitions, all equations, all conditions.
+  repetitive prose, keep every definition, every load-bearing equation,
+  and every condition.
 - Keep the book's notation exactly. Do not invent new symbols.
 - Cite the source page range in the header table.
