@@ -1,6 +1,6 @@
 ---
 name: summary-paper
-description: Use when the user hands over a research paper (local PDF path, arXiv URL or ID) and wants it read, summarized, digested or judged. Triggers include "이 논문 요약해줘", "논문 정리", "논문 읽어줘", "핵심만", "기여가 뭐야", "읽을 가치 있어?", "PACES", "paper summary", "summarize this paper", "what does this paper claim", "is this paper worth reading", and any pasted arXiv link with a request to explain it. Use it even when the user only says "이거 뭐야" about a paper PDF. Not for textbook chapters (textbook-notes) or a concept with no specific paper (explain-concept).
+description: Use when the user hands over a research paper (local PDF path, arXiv URL or ID) and wants it read, summarized, digested or judged. Triggers include "이 논문 요약해줘", "논문 정리", "논문 읽어줘", "핵심만", "기여가 뭐야", "읽을 가치 있어?", "PACES", "paper summary", "summarize this paper", "what does this paper claim", "is this paper worth reading", and any pasted arXiv link with a request to summarize it. Use it even when the user only says "이거 뭐야" about a paper PDF. Not for textbook chapters (textbook-notes), a concept with no specific paper (explain-concept), or a request to explain a paper in the chat, walk through its math, critique it, or find a follow-up idea (paper-forge, when installed).
 ---
 
 # /summary-paper
