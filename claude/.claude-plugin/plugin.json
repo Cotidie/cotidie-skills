@@ -1,7 +1,7 @@
 {
   "name": "cotidie",
   "description": "Cotidie's custom Claude Code skills: PR writing, iteration roadmaps, coding guidelines, CLI user testing, UML class diagrams, slide design extraction, React scaffolding, textbook study notes, concept explainers, PACES paper summaries and figure-first knowledge notes.",
-  "version": "0.10.1",
+  "version": "0.10.3",
   "skills": "./skills/",
   "author": {
     "name": "Cotidie"

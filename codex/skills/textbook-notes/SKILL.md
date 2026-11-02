@@ -98,7 +98,10 @@ Equation cross-references: display equations carrying `\tag{N}` become
 anchors; textual references like `(20)` in prose auto-link to them, with a
 hover preview of the equation. Works across chapters of the same book via
 `build/eq-map.json` (per language). Rebuild all chapters together; a
-forward reference to a not-yet-rendered chapter needs a second build pass.
+forward reference to a not-yet-rendered chapter needs a second build pass. A rebuild replaces that chapter's symbol map entries, so after cutting
+symbols, rebuild the other chapters too. Equation map entries stay, so prose
+citing a cut equation keeps its hover preview. The build prints a warning
+when a KaTeX error remains.
 
 ```
 ::: warning The trap of small eigenvalues
@@ -118,4 +121,7 @@ like `$p_u(i), r_u(i)$` match each part. Defined symbols inside display
 equations (`$$...$$`) get the same hover and click-to-jump, wrapped at
 render time via KaTeX `\htmlData`. Cross-chapter resolution works
 via `build/sym-map.json`, same per-language, rebuild-together caveat as
-equations. Authoring rules live in `references/note-style.md`.
+equations. A bare letter, with or without an index (`J`, `Y_k`), resolves
+only inside its own chapter. `Y_k` also attaches to `Y_1` and `Y_i` there,
+so skip a letter whose meaning changes within the chapter. Authoring rules
+live in `references/note-style.md`.
