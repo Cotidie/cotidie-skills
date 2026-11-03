@@ -9,7 +9,7 @@ Subcommands
   preview  figure.svg -o /tmp/f.png              (rasterize an SVG: rsvg/inkscape/chrome, MuPDF fallback)
   toc      paper.pdf                               (likely section headings per page, by font size)
 
-Palette matches explain-concept / textbook-notes (light theme).
+Palette matches textbook-notes (light theme).
 """
 import argparse
 import json

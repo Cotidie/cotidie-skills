@@ -1,6 +1,6 @@
 # 시각화 규칙
 
-팔레트와 문체는 explain-concept, textbook-notes와 같다. 그림은 논문을 다시 그리는 것이
+팔레트와 문체는 textbook-notes와 같다. 그림은 논문을 다시 그리는 것이
 아니라 PACES 답 하나를 받친다. 받치는 답이 없으면 그리지 않는다.
 
 ## 팔레트
