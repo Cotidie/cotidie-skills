@@ -55,7 +55,6 @@ Maintained elsewhere, deliberately not vendored here.
 ### humanizer
 
 Removes signs of AI writing. Upstream: <https://github.com/blader/humanizer> (MIT).
-The bundled `write-like-me` skill calls it in its final editing pass.
 
 ```bash
 mkdir -p ~/.claude/skills

@@ -21,7 +21,6 @@ whole environment rebuilds itself.
 | `extract-slide-design` | Reverse-engineer slides or report PDFs into a reusable `DESIGN.md`.           | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) |
 | `iteration-roadmap`    | Break a project into small, vertical, user-testable iterations.               | [✅](claude/skills/iteration-roadmap)    | [✅](codex/skills/iteration-roadmap)    |
 | `modify-class-diagram` | Update an existing `.drawio` class diagram to match a codebase.               | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) |
-| `write-like-me`        | Write figure-first knowledge notes in Cotidie's documented voice.             | [✅](claude/skills/write-like-me)        | [✅](codex/skills/write-like-me)        |
 
 
 ## Third party skills
