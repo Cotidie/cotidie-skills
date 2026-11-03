@@ -83,9 +83,25 @@ codex plugin add i-have-adhd@i-have-adhd
 
 Verify: `claude plugin list` and `codex plugin list` both show it.
 
+### karpathy-guidelines
+
+Keeps coding work simple, surgical, and verifiable. Upstream:
+<https://github.com/forrestchang/andrej-karpathy-skills> (MIT).
+
+```bash
+claude plugin marketplace add forrestchang/andrej-karpathy-skills
+claude plugin install andrej-karpathy-skills@karpathy-skills
+
+codex plugin marketplace add forrestchang/andrej-karpathy-skills
+codex plugin add andrej-karpathy-skills@karpathy-skills
+```
+
+Verify: `claude plugin list` and `codex plugin list` both show
+`andrej-karpathy-skills@karpathy-skills`.
+
 ## 3. User-scope defaults
 
-Sections 1 to 3 leave every skill on demand. This section makes two of them
+Sections 1 and 2 leave every skill on demand. This section makes two of them
 apply to every answer.
 
 ### i-have-adhd, always on
@@ -128,5 +144,6 @@ ls ~/.claude/skills ~/.codex/skills
 ls ~/.claude/.i-have-adhd-always
 ```
 
-Expected: `cotidie` and `i-have-adhd` installed on both hosts, `humanizer`
-present in both skills directories, and the ADHD flag file in place.
+Expected: `cotidie`, `i-have-adhd` and `andrej-karpathy-skills` installed on
+both hosts, `humanizer` present in both skills directories, and the ADHD flag
+file in place.

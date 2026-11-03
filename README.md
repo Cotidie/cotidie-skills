@@ -25,20 +25,19 @@ whole environment rebuilds itself.
 
 ## Third party skills
 
-Upstream projects, not authored here. `karpathy-guidelines` ships as a pinned
-snapshot. The other two install separately and are covered in
-[INSTALL.md](INSTALL.md#3-third-party-skills).
+Upstream projects, not authored here. Each installs from its own repo; see
+[INSTALL.md](INSTALL.md#2-third-party-skills).
 
 
-| Skill                 | Description                                                          | Upstream                                                                                                            | Claude                                 | Codex                                 |
-| --------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------------------------------- |
-| `humanizer`           | Remove signs of AI-generated writing from text.                      | [blader/humanizer](https://github.com/blader/humanizer)                                                             | install                                | install                               |
-| `i-have-adhd`         | Shape answers for an ADHD reader: next action first, numbered steps. | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd)                                                         | install                                | install                               |
-| `karpathy-guidelines` | Keep coding work simple, surgical, explicit, and verifiable.         | [`64723a4`](https://github.com/forrestchang/andrej-karpathy-skills/commit/64723a49ea6117894304eb491f0d32a60570bf45) | [✅](claude/skills/karpathy-guidelines) | [✅](codex/skills/karpathy-guidelines) |
+| Skill                 | Description                                                          | Upstream                                                                                      | Claude  | Codex   |
+| --------------------- | -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------- | ------- |
+| `humanizer`           | Remove signs of AI-generated writing from text.                      | [blader/humanizer](https://github.com/blader/humanizer)                                       | install | install |
+| `i-have-adhd`         | Shape answers for an ADHD reader: next action first, numbered steps. | [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd)                                   | install | install |
+| `karpathy-guidelines` | Keep coding work simple, surgical, explicit, and verifiable.         | [forrestchang/andrej-karpathy-skills](https://github.com/forrestchang/andrej-karpathy-skills) | install | install |
 
 
 Both `humanizer` and `i-have-adhd` can run on every answer instead of on
-request. See [User-scope defaults](INSTALL.md#4-user-scope-defaults).
+request. See [User-scope defaults](INSTALL.md#3-user-scope-defaults).
 
 ## Contributing
 
