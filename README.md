@@ -19,7 +19,6 @@ whole environment rebuilds itself.
 | `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format.               | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) |
 | `extract-slide-design` | Reverse-engineer slides or report PDFs into a reusable `DESIGN.md`.           | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) |
 | `iteration-roadmap`    | Break a project into small, vertical, user-testable iterations.               | [✅](claude/skills/iteration-roadmap)    | [✅](codex/skills/iteration-roadmap)    |
-| `modify-class-diagram` | Update an existing `.drawio` class diagram to match a codebase.               | [✅](claude/skills/modify-class-diagram) | [✅](codex/skills/modify-class-diagram) |
 
 
 ## Third party skills
