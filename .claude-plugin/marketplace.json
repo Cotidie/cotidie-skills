@@ -8,7 +8,7 @@
   "plugins": [
     {
       "name": "cotidie",
-      "description": "PR writing, iteration roadmaps, UML class diagram, slide design extraction, React scaffolding, textbook study note and PACES paper summary skills.",
+      "description": "PR writing, iteration roadmaps, UML class diagram, slide design extraction, React scaffolding, refactoring, textbook study note and PACES paper summary skills.",
       "source": "./claude",
       "category": "productivity"
     }
