@@ -44,7 +44,15 @@ Verify: `codex plugin list` shows `cotidie@cotidie-skills` as `installed, enable
   python3 -m pip install pymupdf matplotlib markdown
   ```
 
-- `textbook-notes`: Node. First run only, inside the skill's `scripts/`: `npm install`.
+- `textbook-notes`: Node 18+ (first run only, inside the skill's `scripts/`: `npm install`),
+  poppler, `uv`, ManimGX with `ffmpeg` for animations, and the `openrouter-images` skill with
+  `OPENROUTER_API_KEY` for image model figures. Without ManimGX or the image skill, the note
+  builds without animations or generated figures.
+
+  ```bash
+  uv tool install --python 3.14 manimgx
+  gh skill install OpenRouterTeam/skills openrouter-images --scope user
+  ```
 
 Verify: `pdftotext -v` prints a version; `python3 -c "import fitz, matplotlib, markdown"` exits 0.
 
