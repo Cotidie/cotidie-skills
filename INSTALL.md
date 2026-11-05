@@ -54,6 +54,9 @@ Verify: `codex plugin list` shows `cotidie@cotidie-skills` as `installed, enable
   gh skill install OpenRouterTeam/skills openrouter-images --scope user
   ```
 
+- `paper-visual`: the `textbook-notes` tools above. It reuses that skill's renderer,
+  animation kit, and image runner from the same plugin.
+
 Verify: `pdftotext -v` prints a version; `python3 -c "import fitz, matplotlib, markdown"` exits 0.
 
 ## 2. Third-party skills

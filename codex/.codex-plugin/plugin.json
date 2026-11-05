@@ -1,15 +1,15 @@
 {
   "name": "cotidie",
-  "version": "0.16.1",
-  "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, UML class diagrams, slide design extraction, React scaffolding, refactoring, textbook study notes and PACES paper summaries.",
+  "version": "0.17.0",
+  "description": "Cotidie's custom Codex skills: PR writing, iteration roadmaps, UML class diagrams, slide design extraction, React scaffolding, refactoring, textbook study notes, PACES paper summaries and visual paper study pages.",
   "skills": "./skills/",
   "author": {
     "name": "Cotidie"
   },
   "interface": {
     "displayName": "Cotidie",
-    "shortDescription": "Custom Codex workflows for PR writing, iteration roadmaps, UML class diagrams, slide design extraction, React scaffolding, refactoring, textbook study notes and PACES paper summaries.",
-    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text, planning vertical user-testable iterations, creating UML class diagrams as draw.io files, reverse-engineering reference slides into a reusable DESIGN.md visual design system, scaffolding or refactoring React apps, slimming codebases and fixing their module boundaries, distilling textbook chapter PDFs into Notion-style study notes, and reading research papers with the PACES method into summaries with figures.",
+    "shortDescription": "Custom Codex workflows for PR writing, iteration roadmaps, UML class diagrams, slide design extraction, React scaffolding, refactoring, textbook study notes, PACES paper summaries and visual paper study pages.",
+    "longDescription": "Cotidie's Codex plugin bundles reusable workflow skills for drafting pull request text, planning vertical user-testable iterations, creating UML class diagrams as draw.io files, reverse-engineering reference slides into a reusable DESIGN.md visual design system, scaffolding or refactoring React apps, slimming codebases and fixing their module boundaries, distilling textbook chapter PDFs into Notion-style study notes, reading research papers with the PACES method into summaries with figures, and turning one paper into a visual study page with ManimGX animations.",
     "developerName": "Cotidie",
     "category": "Productivity",
     "capabilities": [
@@ -20,8 +20,9 @@
       "Scaffold or refactor React apps with bundled conventions",
       "Slim a codebase and fix function, file, and module boundaries",
       "Distill textbook chapter PDFs into Notion-style study notes",
-      "Summarize a research paper with PACES into Markdown or HTML with figures"
+      "Summarize a research paper with PACES into Markdown or HTML with figures",
+      "Turn one paper into a visual study page with animations and offline HTML"
     ],
-    "defaultPrompt": "Use $cotidie:pr-writer, $cotidie:iteration-roadmap, $cotidie:create-class-diagram, $cotidie:extract-slide-design, $cotidie:scaffold-react, $cotidie:refactor-slim, $cotidie:textbook-notes or $cotidie:summary-paper."
+    "defaultPrompt": "Use $cotidie:pr-writer, $cotidie:iteration-roadmap, $cotidie:create-class-diagram, $cotidie:extract-slide-design, $cotidie:scaffold-react, $cotidie:refactor-slim, $cotidie:textbook-notes, $cotidie:summary-paper or $cotidie:paper-visual."
   }
 }

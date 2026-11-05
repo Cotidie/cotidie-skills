@@ -15,6 +15,7 @@ whole environment rebuilds itself.
 | `pr-writer`            | Draft a PR or MR title and body from a branch diff, commits, or summary.      | [✅](claude/skills/pr-writer)            | [✅](codex/skills/pr-writer)            |
 | `textbook-notes`       | Distill math-heavy textbook chapters into study notes with offline HTML.      | [✅](claude/skills/textbook-notes)       | [✅](codex/skills/textbook-notes)       |
 | `summary-paper`        | Read a paper with PACES into a Markdown or HTML summary with figures.        | [✅](claude/skills/summary-paper)        | [✅](codex/skills/summary-paper)        |
+| `paper-visual`         | Turn one paper into a visual study page with animations and offline HTML.     | [✅](claude/skills/paper-visual)         | [✅](codex/skills/paper-visual)         |
 | `scaffold-react`       | Create or refactor React apps to the bundled scaffold conventions.            | [✅](claude/skills/scaffold-react)       | [✅](codex/skills/scaffold-react)       |
 | `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format.               | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) |
 | `extract-slide-design` | Reverse-engineer slides or report PDFs into a reusable `DESIGN.md`.           | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) |
