@@ -16,7 +16,6 @@ whole environment rebuilds itself.
 | `textbook-notes`       | Distill math-heavy textbook chapters into study notes with offline HTML.      | [✅](claude/skills/textbook-notes)       | [✅](codex/skills/textbook-notes)       |
 | `summary-paper`        | Read a paper with PACES into a Markdown or HTML summary with figures.        | [✅](claude/skills/summary-paper)        | [✅](codex/skills/summary-paper)        |
 | `scaffold-react`       | Create or refactor React apps to the bundled scaffold conventions.            | [✅](claude/skills/scaffold-react)       | [✅](codex/skills/scaffold-react)       |
-| `cli-user-test`        | Validate a built, unit-tested program as a real user would from the terminal. | [✅](claude/skills/cli-user-test)        | [✅](codex/skills/cli-user-test)        |
 | `create-class-diagram` | Create UML class diagrams in uncompressed `.drawio` XML format.               | [✅](claude/skills/create-class-diagram) | [✅](codex/skills/create-class-diagram) |
 | `extract-slide-design` | Reverse-engineer slides or report PDFs into a reusable `DESIGN.md`.           | [✅](claude/skills/extract-slide-design) | [✅](codex/skills/extract-slide-design) |
 | `iteration-roadmap`    | Break a project into small, vertical, user-testable iterations.               | [✅](claude/skills/iteration-roadmap)    | [✅](codex/skills/iteration-roadmap)    |
