@@ -74,9 +74,19 @@ upstream README.
 | `manimgx` | skill | Author and render math and 3D animations with ManimGX. | [academa-labs/manimgx](https://github.com/academa-labs/manimgx) |
 | `shaders` | skill + MCP | Build WebGPU visual effects with the Shaders component library. | [shader-effects-inc/shaders](https://github.com/shader-effects-inc/shaders) |
 | `openrouter-images` | skill | Generate and edit images through OpenRouter's Image API. | [OpenRouterTeam/skills](https://github.com/OpenRouterTeam/skills) |
+| `impeccable` | plugin, skill + hook, per project | Steer, critique, and audit web UI design, and flag AI design slop. | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) |
 
 `textbook-notes` and `paper-visual` call `manimgx` and `openrouter-images` for
 their animations and figures.
+
+Install `impeccable` per web project, never globally. Its design hook scans
+every HTML, CSS, and JS edit wherever it is enabled, including the HTML that
+`textbook-notes` and `paper-visual` write. From the web project's root:
+
+```bash
+claude plugin marketplace add pbakaus/impeccable   # once per machine
+claude plugin install impeccable@impeccable --scope local
+```
 
 ### 5. Web and daily life
 
