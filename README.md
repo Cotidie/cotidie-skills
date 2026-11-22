@@ -95,7 +95,6 @@ claude plugin install impeccable@impeccable --scope local
 | `firecrawl` | MCP, hosted | Search the web and scrape pages to Markdown. | [firecrawl/firecrawl-mcp-server](https://github.com/firecrawl/firecrawl-mcp-server) |
 | `playwright` | MCP | Drive a browser for tests and automation. | [microsoft/playwright-mcp](https://github.com/microsoft/playwright-mcp) |
 | `browseros-neo` | skill + MCP | Work in BrowserOS neo, a local browser signed into the user's accounts. | [browseros-ai/BrowserOS](https://github.com/browseros-ai/BrowserOS) |
-| `k-skill` | 3 skills | Book SRT trains, look up Korail timetables, compare prices on Danawa. | [NomaDamas/k-skill](https://github.com/NomaDamas/k-skill) |
 
 ### 6. Agent operations
 
